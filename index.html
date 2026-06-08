@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -117,7 +118,7 @@
 
         /* --- Header --- */
         header { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; transition: var(--transition); }
-        .header-top { display: flex; justify-space-between: space-between; align-items: center; padding: 15px 5%; justify-content: space-between; }
+        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; }
         
         /* علامة kourci الفاخرة مع أنيميشن مستمر واهتزاز الكرسي كل 10 ثوانٍ */
         .logo { font-size: 26px; font-weight: 800; cursor: pointer; display:flex; align-items:center; gap: 8px;}
@@ -125,7 +126,7 @@
             color: var(--primary); 
             font-size: 24px; 
             display: inline-block;
-            animation: chairWiggle 6s ease-in-out infinite;
+            animation: chairWiggle 10s ease-in-out infinite;
         }
         
         @keyframes chairWiggle {
@@ -276,7 +277,7 @@
             background: var(--bg-card); 
             border-radius: 20px; 
             overflow: hidden; 
-            border: 0px solid var(--primary); /* إطار ذهبي رفيع للمنتج */
+            border: 1px solid var(--primary); /* إطار ذهبي رفيع للمنتج */
             box-shadow: var(--shadow); 
             transition: var(--transition); 
             cursor: pointer; 
@@ -340,16 +341,44 @@
         .details-img-wrap img { width: 100%; max-width:450px; border-radius: 20px; aspect-ratio:1/1; object-fit:cover; box-shadow: var(--shadow);}
         .details-info { flex: 1; }
         
-        .order-form { background: var(--bg-body); padding: 30px; border-radius: 24px; margin-top: 20px; box-shadow: var(--shadow); border: 1px solid var(--border-color); transition: var(--transition); }
+        /* معالجة استمارة وخانات الادخال لتظهر بتباين ممتاز في الوضع العادي والليل */
+        .order-form { 
+            background: #f1f3f6; /* خلفية رمادية متباينة ممتازة بالوضع العادي */
+            padding: 30px; 
+            border-radius: 24px; 
+            margin-top: 20px; 
+            box-shadow: var(--shadow); 
+            border: 1px solid #ccd1d9; 
+            transition: var(--transition); 
+        }
+        body.dark-mode .order-form {
+            background: #1c1c1e;
+            border: 1px solid #2c2c2e;
+        }
+
         .pro-form-group { margin-bottom: 18px; }
         .pro-form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size:14px; color: var(--text-main); }
         .input-icon-wrap { position: relative; }
         .input-icon-wrap i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
         
         .pro-input, select.pro-input, .form-control { 
-            width: 100%; padding: 14px 40px 14px 15px; border: 1px solid var(--glass-border); border-radius: 14px; outline: none; transition: var(--transition); font-family: inherit; font-size: 15px; 
-            background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); color: var(--text-main); 
+            width: 100%; 
+            padding: 14px 40px 14px 15px; 
+            border: 1px solid #ccd1d9; /* حدود صلبة واضحة في الوضع العادي */
+            border-radius: 14px; 
+            outline: none; 
+            transition: var(--transition); 
+            font-family: inherit; 
+            font-size: 15px; 
+            background: #ffffff; /* خانات بيضاء نقية واضحة على الخلفية الرمادية للاستمارة */
+            color: #1a1a1a; 
         }
+        body.dark-mode .pro-input, body.dark-mode select.pro-input, body.dark-mode .form-control {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
         .pro-input:focus, .form-control:focus { border-color: var(--primary); background: var(--bg-card); box-shadow: 0 0 0 4px rgba(192, 130, 70, 0.15); }
         .pro-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         
@@ -376,14 +405,6 @@
         .fab-custom { background: var(--primary); box-shadow: 0 4px 15px rgba(192, 130, 70, 0.3); }
 
         .fab-buy-now, .btn-pulse-submit { animation: pulseBtn 2s infinite; }
-        .fab-buy-now {
-            position: fixed; bottom: 100px; right: 20px;
-            background: var(--primary); color: white; padding: 14px 30px; border-radius: 30px;
-            font-size: 16px; font-weight: 800; cursor: pointer; z-index: 1002; display: flex;
-            align-items: center; gap: 10px; border: 2px solid white; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: var(--transition);
-        }
-        .fab-buy-now:hover { transform: scale(1.05); }
 
         /* --- Bottom Navigation Bar --- */
         .bottom-nav {
@@ -431,17 +452,17 @@
             background: var(--bg-body);
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--primary); /* إطار ذهبي رفيع متناسق بتباين ممتاز في الوضع العادي والليل */
         }
         .social-icons a:hover { color: #ffffff; background: var(--primary); border-color: var(--primary); transform: scale(1.1); }
         
         .footer-links li { margin-bottom: 10px; cursor: pointer; font-size: 14px; color: var(--text-muted); transition: var(--transition); }
         .footer-links li:hover { color: var(--primary); }
         
-        /* إطار ذهبي للخريطة */
+        /* إطار ذهبي رفيع للغاية للخريطة */
         .map-container { 
             margin-top: 10px; 
-            border: 3px solid var(--primary); /* إطار ذهبي رائع ومتناسق مع لون الثيم */
+            border: 1px solid var(--primary); /* إطار ذهبي رفيع وجميل */
             border-radius: 18px; 
             overflow: hidden; 
             box-shadow: var(--shadow); 
@@ -452,14 +473,14 @@
         #admin-login-screen { display: none; height: 100vh; background: var(--bg-body); justify-content: center; align-items: center; }
         .login-box { background: var(--bg-card); padding: 40px 30px; border-radius: 24px; width: 90%; max-width:400px; text-align: center; border: 1px solid var(--border-color); box-shadow: var(--shadow); }
         
-        #admin-panel { display: none; display: flex; height: 100vh; background: var(--bg-body); overflow: hidden; direction: rtl;}
-        .admin-sidebar { width: 260px; background: var(--bg-card); color: var(--text-main); display: flex; flex-direction: column; overflow-y: auto; transition:0.3s; border-left: 1px solid var(--border-color); }
+        #admin-panel { display: none; display: flex; height: 100vh; background: var(--bg-body); overflow: hidden; direction: ltr;}
+        .admin-sidebar { width: 260px; background: var(--bg-card); color: var(--text-main); display: flex; flex-direction: column; overflow-y: auto; transition:0.3s; border-right: 1px solid var(--border-color); }
         .admin-logo { padding: 25px; text-align: center; font-size: 22px; font-weight: bold; border-bottom: 1px solid var(--border-color); color: var(--primary); display:flex; justify-content:center; align-items:center;}
         .admin-logo img { max-height: 35px; margin-left: 8px; }
         .admin-nav { list-style: none; padding: 10px; margin: 0; }
         .admin-nav li { padding: 14px 20px; cursor: pointer; border-radius: 12px; margin-bottom: 5px; transition: 0.3s; font-size:15px; display: flex; align-items: center;}
         .admin-nav li:hover, .admin-nav li.active { background: var(--primary); color: white; }
-        .admin-nav li i { margin-left: 10px; width:20px; text-align:center;}
+        .admin-nav li i { margin-right: 10px; width:20px; text-align:center;}
         
         .admin-content { flex: 1; padding: 25px; overflow-y: auto; background: var(--bg-body); }
         .admin-header { display: flex; justify-content: space-between; background: var(--bg-card); padding: 15px 25px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid var(--border-color); margin-bottom: 25px; align-items:center;}
@@ -483,7 +504,7 @@
 
         .admin-table-wrap { overflow-x:auto; background:var(--bg-card); border-radius:16px; border: 1px solid var(--border-color); box-shadow:var(--shadow); }
         .admin-table { width: 100%; border-collapse: collapse; min-width:600px;}
-        .admin-table th, .admin-table td { padding: 15px; text-align: right; border-bottom: 1px solid var(--border-color); font-size:14px; vertical-align: middle; color: var(--text-main); }
+        .admin-table th, .admin-table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border-color); font-size:14px; vertical-align: middle; color: var(--text-main); }
         .admin-table th { background: var(--bg-body); color: var(--text-main); font-weight: bold; }
         .status-badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; color: white; border:none; outline:none; font-weight:bold;}
         .status-pending { background: #f1c40f; color:#000;}
@@ -607,9 +628,7 @@
             </button>
             <div class="details-container" id="single-product-container"></div>
             
-            <div class="fab-buy-now" id="fab-buy-now" onclick="scrollToOrderForm()">
-                <i class="fas fa-shopping-cart"></i> <span data-ar="اطلب الآن" data-fr="Acheter maintenant">Acheter maintenant</span>
-            </div>
+            <!-- تم حذف زر اشتري الآن العائم الذي يظهر بأسفل صفحة المنتج بناءً على طلبكم -->
         </div>
 
         <footer>
@@ -731,7 +750,7 @@
     <div class="modal" id="about-modal"><div class="modal-content"><i class="fas fa-times close-modal" onclick="closeModal('about-modal')"></i><h2 data-ar="من نحن" data-fr="À propos">À propos</h2><p id="txt-about" style="margin-top:10px; white-space:pre-wrap;"></p></div></div>
     <div class="modal" id="contact-modal"><div class="modal-content"><i class="fas fa-times close-modal" onclick="closeModal('contact-modal')"></i><h2 data-ar="اتصل بنا" data-fr="Contact">Contact</h2><p id="txt-contact" style="margin-top:10px; white-space:pre-wrap;"></p></div></div>
 
-    <!-- لوحة تحكم الإدارة -->
+    <!-- لوحة تحكم الإدارة بالفرنسية كخيار افتراضي مع دعم العربية -->
     <div id="admin-login-screen">
         <div class="login-box fade-in">
             <h2 style="color:var(--primary); margin-bottom: 20px;">DASHBOARD | KOURCI</h2>
@@ -746,68 +765,73 @@
         <div class="admin-sidebar" id="admin-sidebar">
             <div class="admin-logo" id="admin-sidebar-logo"><i class="fas fa-chair"></i> Admin</div>
             <ul class="admin-nav">
-                <li class="active" onclick="switchAdminTab('tab-dash', this)"><i class="fas fa-tachometer-alt"></i> الداشبورد والإحصائيات</li>
-                <li onclick="window.currentOrderFilter='all'; switchAdminTab('tab-orders', this); if(window.renderAdminOrders) window.renderAdminOrders();"><i class="fas fa-shopping-cart"></i> الطلبيات العادية</li>
-                <li onclick="switchAdminTab('tab-custom', this)"><i class="fas fa-hammer"></i> طلبات التفصيل</li>
-                <li onclick="switchAdminTab('tab-products', this)"><i class="fas fa-chair"></i> إدارة الكراسي والطاولات</li>
-                <li onclick="switchAdminTab('tab-categories', this)"><i class="fas fa-tags"></i> إدارة الفئات</li>
-                <li onclick="switchAdminTab('tab-banners', this)"><i class="fas fa-images"></i> البانرات</li>
-                <li onclick="switchAdminTab('tab-shipping', this)"><i class="fas fa-truck"></i> الولايات والتوصيل</li>
-                <li onclick="switchAdminTab('tab-invoice', this)"><i class="fas fa-file-invoice"></i> تحرير فاتورة</li>
-                <li onclick="switchAdminTab('tab-accounting', this)"><i class="fas fa-wallet"></i> إدارتي المالية</li>
-                <li onclick="switchAdminTab('tab-settings', this)"><i class="fas fa-cog"></i> الإعدادات</li>
-                <li onclick="logoutAdmin()" style="color: #e74c3c; margin-top: 30px;"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</li>
+                <li class="active" onclick="switchAdminTab('tab-dash', this)" data-adm-ar="الداشبورد والإحصائيات" data-adm-fr="Tableau de bord & Stats"><i class="fas fa-tachometer-alt"></i> Tableau de bord & Stats</li>
+                <li onclick="window.currentOrderFilter='all'; switchAdminTab('tab-orders', this); if(window.renderAdminOrders) window.renderAdminOrders();" data-adm-ar="الطلبيات العادية" data-adm-fr="Commandes Standards"><i class="fas fa-shopping-cart"></i> Commandes Standards</li>
+                <li onclick="switchAdminTab('tab-custom', this)" data-adm-ar="طلبات التفصيل" data-adm-fr="Commandes sur mesure"><i class="fas fa-hammer"></i> Commandes sur mesure</li>
+                <li onclick="switchAdminTab('tab-products', this)" data-adm-ar="إدارة الكراسي والطاولات" data-adm-fr="Gestion des Produits"><i class="fas fa-chair"></i> Gestion des Produits</li>
+                <li onclick="switchAdminTab('tab-categories', this)" data-adm-ar="إدارة الفئات" data-adm-fr="Gestion des Catégories"><i class="fas fa-tags"></i> Gestion des Catégories</li>
+                <li onclick="switchAdminTab('tab-banners', this)" data-adm-ar="البانرات" data-adm-fr="Bannières & Couleurs"><i class="fas fa-images"></i> Bannières & Couleurs</li>
+                <li onclick="switchAdminTab('tab-shipping', this)" data-adm-ar="الولايات والتوصيل" data-adm-fr="Tarifs de Livraison"><i class="fas fa-truck"></i> Tarifs de Livraison</li>
+                <li onclick="switchAdminTab('tab-invoice', this)" data-adm-ar="تحرير فاتورة" data-adm-fr="Création de Facture"><i class="fas fa-file-invoice"></i> Création de Facture</li>
+                <li onclick="switchAdminTab('tab-accounting', this)" data-adm-ar="إدارتي المالية" data-adm-fr="Gestion Financière"><i class="fas fa-wallet"></i> Gestion Financière</li>
+                <li onclick="switchAdminTab('tab-settings', this)" data-adm-ar="الإعدادات" data-adm-fr="Configuration Global"><i class="fas fa-cog"></i> Configuration Global</li>
+                <li onclick="logoutAdmin()" style="color: #e74c3c; margin-top: 30px;" data-adm-ar="تسجيل الخروج" data-adm-fr="Déconnexion"><i class="fas fa-sign-out-alt"></i> Déconnexion</li>
             </ul>
         </div>
 
         <div class="admin-content" onclick="document.getElementById('admin-sidebar').classList.remove('show')">
             <div class="admin-header">
                 <i class="fas fa-bars mobile-admin-toggle" onclick="event.stopPropagation(); document.getElementById('admin-sidebar').classList.toggle('show')"></i>
-                <h2>لوحة التحكم</h2>
-                <div style="font-weight:bold; color:var(--primary); font-size:14px;" id="live-time"></div>
+                <h2 id="admin-header-title" data-adm-ar="لوحة التحكم" data-adm-fr="Panneau d'administration">Panneau d'administration</h2>
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <!-- زر تغيير لغة لوحة التحكم بشكل تفاعلي ومباشر -->
+                    <button class="lang-btn" onclick="toggleAdminLanguage()" id="admin-lang-toggle">AR</button>
+                    <div style="font-weight:bold; color:var(--primary); font-size:14px;" id="live-time"></div>
+                </div>
             </div>
 
             <div id="tab-dash" class="tab-section active">
                 <div class="dashboard-cards">
                     <div class="dash-card c-blue" onclick="window.currentOrderFilter='pending'; switchAdminTab('tab-orders', document.querySelectorAll('.admin-nav li')[1]); if(window.renderAdminOrders) window.renderAdminOrders();">
-                        <h3 id="stat-new-orders">0</h3><p>طلبات جديدة</p>
+                        <h3 id="stat-new-orders">0</h3><p data-adm-ar="طلبات جديدة" data-adm-fr="Nouvelles demandes">Nouvelles demandes</p>
                     </div>
                     <div class="dash-card c-green">
-                        <h3 id="stat-conf-orders">0</h3><p>مؤكدة</p>
+                        <h3 id="stat-conf-orders">0</h3><p data-adm-ar="مؤكدة" data-adm-fr="Confirmées">Confirmées</p>
                     </div>
                     <div class="dash-card c-red">
-                        <h3 id="stat-canc-orders">0</h3><p>ملغية</p>
+                        <h3 id="stat-canc-orders">0</h3><p data-adm-ar="ملغية" data-adm-fr="Annulées">Annulées</p>
                     </div>
                     <div class="dash-card c-purple" onclick="switchAdminTab('tab-custom', document.querySelectorAll('.admin-nav li')[2])">
-                        <h3 id="stat-custom">0</h3><p>طلبات تفصيل مخصصة</p>
+                        <h3 id="stat-custom">0</h3><p data-adm-ar="طلبات تفصيل مخصصة" data-adm-fr="Commandes sur mesure">Commandes sur mesure</p>
                     </div>
                     <div class="dash-card c-orange">
-                        <h3 id="stat-visits-today">0</h3><p>زيارات اليوم</p>
+                        <h3 id="stat-visits-today">0</h3><p data-adm-ar="زيارات اليوم" data-adm-fr="Visites aujourd'hui">Visites aujourd'hui</p>
                     </div>
                     <div class="dash-card c-dark">
-                        <h3 id="stat-visits-month">0</h3><p>زيارات الشهر</p>
+                        <h3 id="stat-visits-month">0</h3><p data-adm-ar="زيارات الشهر" data-adm-fr="Visites mensuelles">Visites mensuelles</p>
                     </div>
                 </div>
                 <div style="background:var(--bg-card); padding:15px; border-radius:10px; border: 1px solid var(--border-color);">
-                    <h3>رسم بياني للطلبات</h3>
+                    <h3 data-adm-ar="رسم بياني للطلبات" data-adm-fr="Graphique des commandes">Graphique des commandes</h3>
                     <div style="position: relative; height:300px; width:100%;"><canvas id="salesChart"></canvas></div>
                 </div>
             </div>
 
             <div id="tab-orders" class="tab-section">
                 <div style="display:flex; justify-content:space-between; margin-bottom:15px; align-items:center;">
-                    <h3>إدارة الطلبيات</h3>
-                    <button class="btn" style="width:180px; padding:8px; background:#27ae60;" onclick="exportSelectedOrders()"><i class="fas fa-file-excel"></i> تصدير (CSV)</button>
+                    <h3 data-adm-ar="إدارة الطلبيات" data-adm-fr="Gestion des Commandes">Gestion des Commandes</h3>
+                    <button class="btn" style="width:180px; padding:8px; background:#27ae60;" onclick="exportSelectedOrders()"><i class="fas fa-file-excel"></i> <span data-adm-ar="تصدير" data-adm-fr="Exporter (CSV)">Exporter (CSV)</span></button>
                 </div>
                 <div class="admin-table-wrap" style="margin-top:15px;">
                     <table class="admin-table">
                         <thead><tr>
                             <th><input type="checkbox" onchange="document.querySelectorAll('.order-check').forEach(c=>c.checked=this.checked)"></th>
-                            <th>معلومات الطلب</th>
-                            <th>الزبون والعنوان</th>
-                            <th>التفاصيل المالية</th>
-                            <th>الحالة</th>
-                            <th>إجراء</th>
+                            <th data-adm-ar="معلومات الطلب" data-adm-fr="Info Commande">Info Commande</th>
+                            <th data-adm-ar="المنتج" data-adm-fr="Produit">Produit</th>
+                            <th data-adm-ar="الزبون والعنوان" data-adm-fr="Client & Adresse">Client & Adresse</th>
+                            <th data-adm-ar="التفاصيل المالية" data-adm-fr="Détails Financiers">Détails Financiers</th>
+                            <th data-adm-ar="الحالة" data-adm-fr="Statut">Statut</th>
+                            <th data-adm-ar="إجراء" data-adm-fr="Action">Action</th>
                         </tr></thead>
                         <tbody id="orders-tbody"></tbody>
                     </table>
@@ -815,10 +839,10 @@
             </div>
 
             <div id="tab-custom" class="tab-section">
-                <h3>طلبات التصميم والتفصيل المخصصة</h3>
+                <h3 data-adm-ar="طلبات التصميم والتفصيل المخصصة" data-adm-fr="Commandes Personnalisées & Sur Mesure">Commandes Personnalisées & Sur Mesure</h3>
                 <div class="admin-table-wrap" style="margin-top:15px;">
                     <table class="admin-table">
-                        <thead><tr><th>الرقم</th><th>الصورة</th><th>الوصف/المقاسات</th><th>الزبون/الهاتف</th><th>الولاية</th><th>إجراء</th></tr></thead>
+                        <thead><tr><th data-adm-ar="الرقم" data-adm-fr="ID">ID</th><th data-adm-ar="الصورة" data-adm-fr="Image">Image</th><th data-adm-ar="الوصف/المقاسات" data-adm-fr="Description / Dimensions">Description / Dimensions</th><th data-adm-ar="الزبون/الهاتف" data-adm-fr="Client / Tél">Client / Tél</th><th data-adm-ar="الولاية" data-adm-fr="Wilaya">Wilaya</th><th data-adm-ar="إجراء" data-adm-fr="Action">Action</th></tr></thead>
                         <tbody id="custom-tbody"></tbody>
                     </table>
                 </div>
@@ -826,50 +850,50 @@
 
             <div id="tab-products" class="tab-section">
                 <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                    <h3>المنتجات المعروضة</h3>
-                    <button class="btn" style="width:150px; padding:8px;" onclick="openProductModal()">إضافة قطعة +</button>
+                    <h3 data-adm-ar="المنتجات المعروضة" data-adm-fr="Produits Affichés">Produits Affichés</h3>
+                    <button class="btn" style="width:180px; padding:8px;" onclick="openProductModal()" data-adm-ar="إضافة قطعة +" data-adm-fr="Ajouter Produit +">Ajouter Produit +</button>
                 </div>
                 <div class="products-grid" id="admin-products-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px,1fr));"></div>
             </div>
 
             <div id="tab-categories" class="tab-section">
                 <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                    <h3>الفئات</h3>
-                    <button class="btn" style="width:150px; padding:8px;" onclick="openCategoryModal()">إضافة فئة +</button>
+                    <h3 data-adm-ar="الفئات" data-adm-fr="Catégories">Catégories</h3>
+                    <button class="btn" style="width:180px; padding:8px;" onclick="openCategoryModal()" data-adm-ar="إضافة فئة +" data-adm-fr="Ajouter Catégorie +">Ajouter Catégorie +</button>
                 </div>
                 <div class="products-grid" id="admin-categories-grid" style="grid-template-columns: repeat(auto-fill, minmax(150px,1fr));"></div>
             </div>
 
             <div id="tab-banners" class="tab-section">
-                <h3>البانرات وتغيير اللون</h3>
+                <h3 data-adm-ar="البانرات وتغيير اللون" data-adm-fr="Bannières & Thème">Bannières & Thème</h3>
                 <div class="form-row" style="background:var(--bg-card); padding:15px; border-radius:10px; margin-top:15px; align-items:flex-end; border: 1px solid var(--border-color);">
-                    <div><label>صورة البانر</label><input type="file" id="banner-img" class="form-control" accept="image/*"></div>
-                    <div><label>رابط التحويل</label>
-                        <input type="text" id="banner-link" class="form-control" placeholder="أدخل الرابط (اختياري)">
+                    <div><label data-adm-ar="صورة البانر" data-adm-fr="Image de la bannière">Image de la bannière</label><input type="file" id="banner-img" class="form-control" accept="image/*"></div>
+                    <div><label data-adm-ar="رابط التحويل" data-adm-fr="Lien de redirection">Lien de redirection</label>
+                        <input type="text" id="banner-link" class="form-control" placeholder="Lien (Optionnel)">
                     </div>
-                    <div><button class="btn" onclick="addBanner()">إضافة البانر</button></div>
+                    <div><button class="btn" onclick="addBanner()" data-adm-ar="إضافة البانر" data-adm-fr="Ajouter Bannière">Ajouter Bannière</button></div>
                 </div>
                 <div id="admin-banners-list" style="display:flex; gap:10px; overflow-x:auto; margin-top:15px;"></div>
 
-                <h3 style="margin-top:30px;">تغيير ألوان الموقع (Theme)</h3>
+                <h3 style="margin-top:30px;" data-adm-ar="تغيير ألوان الموقع (Theme)" data-adm-fr="Personnaliser le thème de couleur">Personnaliser le thème de couleur</h3>
                 <div style="display:flex; gap:10px; margin-top:10px;">
                     <div style="width:40px;height:40px;background:#c08246;border-radius:50%;cursor:pointer;" onclick="changeTheme('#c08246')"></div>
                     <div style="width:40px;height:40px;background:#8e44ad;border-radius:50%;cursor:pointer;" onclick="changeTheme('#8e44ad')"></div>
                     <div style="width:40px;height:40px;background:#d35400;border-radius:50%;cursor:pointer;" onclick="changeTheme('#d35400')"></div>
                     <div style="width:40px;height:40px;background:#2c3e50;border-radius:50%;cursor:pointer;" onclick="changeTheme('#2c3e50')"></div>
-                    <input type="color" id="custom-color" class="form-control" style="width:50px; height:40px; padding:0;" onchange="changeTheme(this.value)" title="لون مخصص">
+                    <input type="color" id="custom-color" class="form-control" style="width:50px; height:40px; padding:0;" onchange="changeTheme(this.value)" title="Couleur personnalisée">
                 </div>
             </div>
 
             <div id="tab-shipping" class="tab-section">
-                <h3>إدراج أسعار التوصيل (ملف CSV)</h3>
-                <p style="font-size:13px; color:var(--text-muted); margin-bottom:10px;">الأعمدة: رقم، اسم، سعر مكتب، سعر منزل</p>
+                <h3 data-adm-ar="إدراج أسعار التوصيل (ملف CSV)" data-adm-fr="Importer Tarifs de Livraison (Fichier CSV)">Importer Tarifs de Livraison (Fichier CSV)</h3>
+                <p style="font-size:13px; color:var(--text-muted); margin-bottom:10px;" data-adm-ar="الأعمدة: رقم، اسم، سعر مكتب، سعر منزل" data-adm-fr="Colonnes: ID, Wilaya, Prix Bureau, Prix Domicile">Colonnes: ID, Wilaya, Prix Bureau, Prix Domicile</p>
                 <input type="file" id="csv-file" accept=".csv" class="form-control" style="margin:15px 0;">
-                <button class="btn" onclick="parseCSV()">تحديث أسعار التوصيل</button>
+                <button class="btn" onclick="parseCSV()" data-adm-ar="تحديث أسعار التوصيل" data-adm-fr="Mettre à jour les tarifs">Mettre à jour les tarifs</button>
             </div>
 
             <div id="tab-invoice" class="tab-section">
-                <button class="btn" onclick="window.printInvoice()" style="width:120px; margin-bottom:15px; padding:8px;"><i class="fas fa-print"></i> طباعة</button>
+                <button class="btn" onclick="window.printInvoice()" style="width:120px; margin-bottom:15px; padding:8px;"><i class="fas fa-print"></i> <span data-adm-ar="طباعة" data-adm-fr="Imprimer">Imprimer</span></button>
                 <button class="btn" onclick="downloadPDF('print-area', 'Facture_Kourci.pdf')" style="width:120px; margin-bottom:15px; padding:8px; background:#e67e22;"><i class="fas fa-download"></i> PDF</button>
                 
                 <div class="invoice-box" id="print-area">
@@ -907,50 +931,50 @@
             </div>
 
             <div id="tab-accounting" class="tab-section">
-                <h3>إدارتي المالية</h3>
+                <h3 data-adm-ar="إدارتي المالية" data-adm-fr="Comptabilité & Finances">Comptabilité & Finances</h3>
                 <div class="form-row" style="background:var(--bg-card); border: 1px solid var(--border-color); padding:15px; border-radius:10px; margin-top:15px; align-items:flex-end;">
-                    <div><label>النوع</label><select id="acc-type" class="form-control"><option value="in">إيراد</option><option value="out">نفقة</option></select></div>
-                    <div><label>المبلغ (DA)</label><input type="number" id="acc-amount" class="form-control"></div>
-                    <div><label>البيان / الجهة</label><input type="text" id="acc-desc" class="form-control"></div>
-                    <div><button class="btn" onclick="addAccountingRecord()">تسجيل</button></div>
+                    <div><label data-adm-ar="النوع" data-adm-fr="Type">Type</label><select id="acc-type" class="form-control"><option value="in">Recette (Entrée)</option><option value="out">Dépense (Sortie)</option></select></div>
+                    <div><label data-adm-ar="المبلغ (DA)" data-adm-fr="Montant (DA)">Montant (DA)</label><input type="number" id="acc-amount" class="form-control"></div>
+                    <div><label data-adm-ar="البيان" data-adm-fr="Désignation">Désignation</label><input type="text" id="acc-desc" class="form-control"></div>
+                    <div><button class="btn" onclick="addAccountingRecord()" data-adm-ar="تسجيل" data-adm-fr="Enregistrer">Enregistrer</button></div>
                 </div>
                 <div class="dashboard-cards" style="margin-top:15px;">
-                    <div class="dash-card c-green"><h3><span id="total-in">0</span> DA</h3><p>الإيرادات</p></div>
-                    <div class="dash-card c-red"><h3><span id="total-out">0</span> DA</h3><p>النفقات</p></div>
-                    <div class="dash-card c-blue"><h3><span id="net-profit">0</span> DA</h3><p>صافي الربح</p></div>
+                    <div class="dash-card c-green"><h3><span id="total-in">0</span> DA</h3><p data-adm-ar="الإيرادات" data-adm-fr="Total Entrées">Total Entrées</p></div>
+                    <div class="dash-card c-red"><h3><span id="total-out">0</span> DA</h3><p data-adm-ar="النفقات" data-adm-fr="Total Sorties">Total Sorties</p></div>
+                    <div class="dash-card c-blue"><h3><span id="net-profit">0</span> DA</h3><p data-adm-ar="صافي الربح" data-adm-fr="Bénéfice Net">Bénéfice Net</p></div>
                 </div>
                 <div class="admin-table-wrap">
                     <table class="admin-table">
-                        <thead><tr><th>التاريخ</th><th>النوع</th><th>البيان</th><th>المبلغ</th><th>إجراء</th></tr></thead>
+                        <thead><tr><th data-adm-ar="التاريخ" data-adm-fr="Date">Date</th><th data-adm-ar="النوع" data-adm-fr="Type">Type</th><th data-adm-ar="البيان" data-adm-fr="Désignation">Désignation</th><th data-adm-ar="المبلغ" data-adm-fr="Montant">Montant</th><th data-adm-ar="إجراء" data-adm-fr="Action">Action</th></tr></thead>
                         <tbody id="acc-tbody"></tbody>
                     </table>
                 </div>
             </div>
 
             <div id="tab-settings" class="tab-section">
-                <h3>الإعدادات</h3>
+                <h3 data-adm-ar="الإعدادات" data-adm-fr="Configurations de la Boutique">Configurations de la Boutique</h3>
                 <div style="background:var(--bg-card); padding:15px; border-radius:10px; margin-top:15px; border: 1px solid var(--border-color);">
                     <div class="form-row">
-                        <div><label>لوغو الموقع (صورة)</label><input type="file" id="set-logo" class="form-control" accept="image/*"></div>
-                        <div><label>واتساب (213+)</label><input type="text" id="set-whatsapp" class="form-control"></div>
+                        <div><label data-adm-ar="لوغو الموقع" data-adm-fr="Logo du site">Logo du site</label><input type="file" id="set-logo" class="form-control" accept="image/*"></div>
+                        <div><label data-adm-ar="واتساب" data-adm-fr="Numéro WhatsApp">Numéro WhatsApp</label><input type="text" id="set-whatsapp" class="form-control"></div>
                     </div>
-                    <h4 style="margin-top:15px; color:var(--primary);">النصوص والروابط</h4>
+                    <h4 style="margin-top:15px; color:var(--primary);" data-adm-ar="النصوص والروابط" data-adm-fr="Contenu des pages d'informations">Contenu des pages d'informations</h4>
                     <div class="form-row">
-                        <div><label>من نحن (عربي)</label><textarea id="set-about-ar" class="form-control" rows="2"></textarea></div>
-                        <div><label>من نحن (فرنسي)</label><textarea id="set-about-fr" class="form-control" rows="2"></textarea></div>
-                    </div>
-                    <div class="form-row">
-                        <div><label>سياسة الخصوصية (عربي)</label><textarea id="set-priv-ar" class="form-control" rows="2"></textarea></div>
-                        <div><label>سياسة الخصوصية (فرنسي)</label><textarea id="set-priv-fr" class="form-control" rows="2"></textarea></div>
+                        <div><label data-adm-ar="من نحن (عربي)" data-adm-fr="À propos (Arabe)">À propos (Arabe)</label><textarea id="set-about-ar" class="form-control" rows="2"></textarea></div>
+                        <div><label data-adm-ar="من نحن (فرنسي)" data-adm-fr="À propos (Français)">À propos (Français)</label><textarea id="set-about-fr" class="form-control" rows="2"></textarea></div>
                     </div>
                     <div class="form-row">
-                        <div><label>سياسة التوصيل (عربي)</label><textarea id="set-ship-ar" class="form-control" rows="2"></textarea></div>
-                        <div><label>سياسة التوصيل (فرنسي)</label><textarea id="set-ship-fr" class="form-control" rows="2"></textarea></div>
+                        <div><label data-adm-ar="سياسة الخصوصية (عربي)" data-adm-fr="Confidentialité (Arabe)">Confidentialité (Arabe)</label><textarea id="set-priv-ar" class="form-control" rows="2"></textarea></div>
+                        <div><label data-adm-ar="سياسة الخصوصية (فرنسي)" data-adm-fr="Confidentialité (Français)">Confidentialité (Français)</label><textarea id="set-priv-fr" class="form-control" rows="2"></textarea></div>
                     </div>
                     <div class="form-row">
-                        <div><label>رابط Google Maps (Embed src)</label><input type="text" id="set-map" class="form-control"></div>
+                        <div><label data-adm-ar="سياسة التوصيل (عربي)" data-adm-fr="Livraison (Arabe)">Livraison (Arabe)</label><textarea id="set-ship-ar" class="form-control" rows="2"></textarea></div>
+                        <div><label data-adm-ar="سياسة التوصيل (فرنسي)" data-adm-fr="Livraison (Français)">Livraison (Français)</label><textarea id="set-ship-fr" class="form-control" rows="2"></textarea></div>
                     </div>
-                    <button class="btn" onclick="saveSettings()" style="margin-top:15px;">حفظ الإعدادات</button>
+                    <div class="form-row">
+                        <div><label data-adm-ar="رابط خرائط جوجل" data-adm-fr="Code d'intégration Google Maps">Code d'intégration Google Maps</label><input type="text" id="set-map" class="form-control"></div>
+                    </div>
+                    <button class="btn" onclick="saveSettings()" data-adm-ar="حفظ الإعدادات" data-adm-fr="Sauvegarder">Sauvegarder</button>
                 </div>
             </div>
 
@@ -1125,6 +1149,27 @@
             }, 800);
         });
 
+        // لوحة تحكم الأدمن بالفرنسية كخيار افتراضي مع دعم العربية
+        window.adminLang = 'fr'; 
+        window.toggleAdminLanguage = () => {
+            window.adminLang = window.adminLang === 'ar' ? 'fr' : 'ar';
+            document.getElementById('admin-lang-toggle').innerText = window.adminLang === 'ar' ? 'FR' : 'AR';
+            
+            const adminPanel = document.getElementById('admin-panel');
+            if (adminPanel) {
+                adminPanel.style.direction = window.adminLang === 'ar' ? 'rtl' : 'ltr';
+            }
+            
+            applyAdminTranslations();
+        };
+
+        function applyAdminTranslations() {
+            const isAr = window.adminLang === 'ar';
+            document.querySelectorAll('[data-adm-ar]').forEach(el => {
+                el.innerText = el.getAttribute(isAr ? 'data-adm-ar' : 'data-adm-fr');
+            });
+        }
+
         function router() {
             const hash = window.location.hash;
             document.getElementById('frontend-app').style.display = 'none';
@@ -1139,6 +1184,7 @@
             if (hash === '#admin1') {
                 if(sessionStorage.getItem('adminLogged') === 'true') {
                     document.getElementById('admin-panel').style.display = 'flex';
+                    applyAdminTranslations(); // تطبيق الفرنسية كلغة افتراضية عند التحميل
                     updateAdminDashboard(); renderAdminProducts(); renderAdminBanners(); renderAccounting(); renderAdminCategories(); renderAdminOrders(); renderAdminCustom();
                 } else {
                     document.getElementById('admin-login-screen').style.display = 'flex';
@@ -1147,7 +1193,6 @@
                 document.getElementById('frontend-app').style.display = 'block';
                 document.getElementById('product-details-page').style.display = 'block';
                 
-                // إخفاء زر المطرقة لمنع التداخل مع زر "اطلب الآن"
                 const hammerBtn = document.getElementById('hammer-fab');
                 if(hammerBtn) hammerBtn.style.display = 'none';
 
@@ -1157,7 +1202,6 @@
                 document.getElementById('frontend-app').style.display = 'block';
                 document.getElementById('home-page').style.display = 'block';
                 
-                // إعادة إظهار زر المطرقة في الصفحة الرئيسية
                 const hammerBtn = document.getElementById('hammer-fab');
                 if(hammerBtn) hammerBtn.style.display = 'flex';
 
@@ -1174,8 +1218,6 @@
         window.scrollToOrderForm = () => {
             const form = document.querySelector('.order-form');
             if (form) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            const fabBuy = document.getElementById('fab-buy-now');
-            if (fabBuy) fabBuy.style.display = 'none';
         };
 
         // --- Frontend Dynamic Renders ---
@@ -1338,9 +1380,6 @@
         }
 
         function renderProductDetails(id) {
-            const fabBuyNow = document.getElementById('fab-buy-now');
-            if (fabBuyNow) fabBuyNow.style.display = 'flex';
-
             const p = window.siteState.products.find(x => x.id === id);
             if(!p) { window.location.hash=''; return; }
             
@@ -1486,6 +1525,7 @@
                 sessionStorage.setItem('adminLogged', 'true');
                 document.getElementById('admin-login-screen').style.display = 'none';
                 document.getElementById('admin-panel').style.display = 'flex';
+                applyAdminTranslations(); // تطبيق الفرنسية كلغة افتراضية عند التحميل
                 updateAdminDashboard(); renderAdminProducts(); renderAdminBanners(); renderAccounting(); renderAdminCategories(); renderAdminOrders(); renderAdminCustom();
             } else { document.getElementById('login-error').style.display = 'block'; }
         };
@@ -1510,16 +1550,16 @@
                 if(window.chartInst) window.chartInst.destroy();
                 window.chartInst = new Chart(document.getElementById('salesChart').getContext('2d'), {
                     type: 'doughnut',
-                    data: { labels: ['مؤكدة', 'قيد المراجعة', 'ملغية'], datasets: [{ data: [o.filter(x=>x.status==='confirmed').length, o.filter(x=>x.status==='pending').length, o.filter(x=>x.status==='cancelled').length], backgroundColor: ['#2ecc71', '#f1c40f', '#e74c3c'] }] },
+                    data: { labels: ['Confirmed', 'Pending', 'Cancelled'], datasets: [{ data: [o.filter(x=>x.status==='confirmed').length, o.filter(x=>x.status==='pending').length, o.filter(x=>x.status==='cancelled').length], backgroundColor: ['#2ecc71', '#f1c40f', '#e74c3c'] }] },
                     options: { responsive: true, maintainAspectRatio: false }
                 });
             } catch(e) {}
         }
 
-        window.deleteOrder = (id) => { if(confirm("هل أنت متأكد؟")) { window.siteState.orders = window.siteState.orders.filter(x=>x.id!==id); saveLocalDB(); renderAdminOrders(); updateAdminDashboard(); } };
-        window.deleteCustomOrder = (id) => { if(confirm("هل أنت متأكد؟")) { window.siteState.customOrders = window.siteState.customOrders.filter(x=>x.id!==id); saveLocalDB(); renderAdminCustom(); updateAdminDashboard(); } };
-        window.deleteProductItem = (id) => { if(confirm("حذف القطعة؟")) { window.siteState.products = window.siteState.products.filter(x=>x.id!==id); saveLocalDB(); renderAdminProducts(); renderFrontendProducts();} };
-        window.deleteBannerItem = (id) => { if(confirm("حذف البانر؟")) { window.siteState.banners = window.siteState.banners.filter(x=>x.id!==id); saveLocalDB(); renderAdminBanners(); renderBanners();} };
+        window.deleteOrder = (id) => { if(confirm("Supprimer?")) { window.siteState.orders = window.siteState.orders.filter(x=>x.id!==id); saveLocalDB(); renderAdminOrders(); updateAdminDashboard(); } };
+        window.deleteCustomOrder = (id) => { if(confirm("Supprimer?")) { window.siteState.customOrders = window.siteState.customOrders.filter(x=>x.id!==id); saveLocalDB(); renderAdminCustom(); updateAdminDashboard(); } };
+        window.deleteProductItem = (id) => { if(confirm("Supprimer?")) { window.siteState.products = window.siteState.products.filter(x=>x.id!==id); saveLocalDB(); renderAdminProducts(); renderFrontendProducts();} };
+        window.deleteBannerItem = (id) => { if(confirm("Supprimer?")) { window.siteState.banners = window.siteState.banners.filter(x=>x.id!==id); saveLocalDB(); renderAdminBanners(); renderBanners();} };
 
         window.openLabelModalSafe = (id) => {
             const o = window.siteState.orders.find(x => x.id === id);
@@ -1550,10 +1590,10 @@
                 <td><strong style="color:var(--primary); font-size:16px;">${o.id}</strong><br><span style="color:var(--text-muted); font-size:12px;">${new Date(o.date).toLocaleDateString('fr-FR')}</span></td>
                 <td><strong>${o.prodName}</strong></td>
                 <td><i class="fas fa-user"></i> ${o.customer}<br><i class="fas fa-phone"></i> ${o.phone}<br><i class="fas fa-map-marker-alt"></i> ${o.wilaya} - ${o.address}</td>
-                <td>سعره: <strong>${o.prodPrice || 0} DA</strong><br>شحن: <strong>${o.shipPrice || 0} DA</strong><br>المجموع: <strong style="color:var(--success); font-size:16px;">${o.total} DA</strong></td>
-                <td><select onchange="changeOrderStatus('${o.id}', this.value)" class="status-badge ${o.status==='confirmed'?'status-confirmed':(o.status==='cancelled'?'status-cancelled':'status-pending')}"><option value="pending" ${o.status==='pending'?'selected':''}>مراجعة</option><option value="confirmed" ${o.status==='confirmed'?'selected':''}>مؤكد</option><option value="cancelled" ${o.status==='cancelled'?'selected':''}>ملغى</option></select></td>
+                <td>${o.prodPrice || 0} DA<br>Livraison: <strong>${o.shipPrice || 0} DA</strong><br>Total: <strong style="color:var(--success); font-size:16px;">${o.total} DA</strong></td>
+                <td><select onchange="changeOrderStatus('${o.id}', this.value)" class="status-badge ${o.status==='confirmed'?'status-confirmed':(o.status==='cancelled'?'status-cancelled':'status-pending')}"><option value="pending" ${o.status==='pending'?'selected':''}>Attente</option><option value="confirmed" ${o.status==='confirmed'?'selected':''}>Confirmé</option><option value="cancelled" ${o.status==='cancelled'?'selected':''}>Annulé</option></select></td>
                 <td>
-                    <button class="action-btn" style="background:#34495e;" onclick="window.openLabelModalSafe('${o.id}')" title="طباعة"><i class="fas fa-print"></i></button>
+                    <button class="action-btn" style="background:#34495e;" onclick="window.openLabelModalSafe('${o.id}')" title="Imprimer"><i class="fas fa-print"></i></button>
                     <button class="action-btn" style="background:var(--danger);" onclick="window.deleteOrder('${o.id}')"><i class="fas fa-trash"></i></button>
                 </td>
             </tr>`).join('');
@@ -1563,7 +1603,7 @@
         window.renderAdminCustom = () => {
             document.getElementById('custom-tbody').innerHTML = window.siteState.customOrders.slice().reverse().map(o => `<tr>
                 <td>${o.id}</td>
-                <td style="text-align:center;">${o.img?`<img src="${o.img}" style="width:120px; border-radius:5px;"><br><a href="${o.img}" download="Design_${o.id}.jpg" class="action-btn" style="background:var(--primary); display:inline-block; margin-top:8px;">تحميل الصورة</a>`:'-'}</td>
+                <td style="text-align:center;">${o.img?`<img src="${o.img}" style="width:120px; border-radius:5px;"><br><a href="${o.img}" download="Design_${o.id}.jpg" class="action-btn" style="background:var(--primary); display:inline-block; margin-top:8px;">Download</a>`:'-'}</td>
                 <td style="white-space: pre-wrap;">${o.desc}</td>
                 <td>${o.customer}<br>${o.phone}</td><td>${o.wilaya}</td>
                 <td><button class="action-btn" style="background:var(--danger);" onclick="window.deleteCustomOrder('${o.id}')"><i class="fas fa-trash"></i></button></td>
@@ -1572,8 +1612,8 @@
 
         window.exportSelectedOrders = () => {
             const checks = document.querySelectorAll('.order-check:checked');
-            if(checks.length === 0) return alert("يرجى تحديد الطلبيات");
-            let csv = '\uFEFFرقم,المنتج,الزبون,الهاتف,الولاية,العنوان,سعر,التوصيل,الإجمالي\n';
+            if(checks.length === 0) return alert("Sélect. commandes");
+            let csv = '\uFEFFID,Produit,Client,Tél,Wilaya,Adresse,Prix,Livraison,Total\n';
             checks.forEach(chk => {
                 const o = window.siteState.orders.find(x => x.id === chk.value);
                 if(o) csv += `${o.id},"${o.prodName}","${o.customer}","${o.phone}","${o.wilaya}","${o.address}","${o.prodPrice}","${o.shipPrice}","${o.total}"\n`;
@@ -1586,8 +1626,8 @@
             document.getElementById('admin-categories-grid').innerHTML = window.siteState.categories.map(c => `
             <div class="product-card" style="border:1px solid var(--border-color); text-align:center;">
                 <img src="${c.img}" style="width:100%; aspect-ratio:1/1; object-fit:cover;">
-                <div class="product-info"><strong>${c.name_ar}</strong><p>${c.name_fr}</p>
-                    <button class="btn" style="background:var(--danger); padding:5px; margin-top:5px;" onclick="window.deleteCategoryItem('${c.id}')">حذف</button>
+                <div class="product-info"><strong>${c.name_fr}</strong>
+                    <button class="btn" style="background:var(--danger); padding:5px; margin-top:5px;" onclick="window.deleteCategoryItem('${c.id}')">Supprimer</button>
                 </div>
             </div>`).join('');
         };
@@ -1607,10 +1647,10 @@
                 return `
                 <div class="product-card" style="border:1px solid var(--border-color);">
                     <img src="${thumbImg}" class="product-img">
-                    <div class="product-info"><strong>${p.name_ar}</strong><p>${p.price} DA | متوفر: ${p.stock}</p>
+                    <div class="product-info"><strong>${p.name_fr}</strong><p>${p.price} DA | Stock: ${p.stock}</p>
                     <div style="display:flex; gap:5px; margin-top:5px;">
-                        <button class="btn" style="background:var(--secondary); padding:5px;" onclick="window.editProduct('${p.id}')">تعديل</button>
-                        <button class="btn" style="background:var(--danger); padding:5px;" onclick="window.deleteProductItem('${p.id}')">حذف</button>
+                        <button class="btn" style="background:var(--secondary); padding:5px;" onclick="window.editProduct('${p.id}')">Modifier</button>
+                        <button class="btn" style="background:var(--danger); padding:5px;" onclick="window.deleteProductItem('${p.id}')">Supprimer</button>
                     </div></div>
                 </div>`
             }).join('');
@@ -1678,7 +1718,7 @@
             document.getElementById('acc-tbody').innerHTML = window.siteState.accounting.slice().reverse().map(a => {
                 if(a.type === 'in') tin += a.amount; else tout += a.amount;
                 let c = a.type === 'in' ? 'color:green' : 'color:red';
-                return `<tr><td>${a.date}</td><td style="${c}">${a.type==='in'?'إيراد':'نفقة'}</td><td>${a.desc}</td><td style="${c}; font-weight:bold;">${a.amount}</td>
+                return `<tr><td>${a.date}</td><td style="${c}">${a.type==='in'?'In':'Out'}</td><td>${a.desc}</td><td style="${c}; font-weight:bold;">${a.amount}</td>
                 <td><button class="action-btn" style="background:var(--danger);" onclick="window.siteState.accounting=window.siteState.accounting.filter(x=>x.id!=='${a.id}'); saveLocalDB(); renderAccounting();"><i class="fas fa-trash"></i></button></td></tr>`;
             }).join('');
             document.getElementById('total-in').innerText = tin; document.getElementById('total-out').innerText = tout; document.getElementById('net-profit').innerText = tin - tout;
@@ -1687,6 +1727,41 @@
             const amount = parseFloat(document.getElementById('acc-amount').value); const desc = document.getElementById('acc-desc').value; if(!amount || !desc) return;
             window.siteState.accounting.push({ id:'a'+Date.now(), date: new Date().toLocaleDateString('fr-FR'), type: document.getElementById('acc-type').value, amount: amount, desc: desc });
             saveLocalDB(); renderAccounting();
+        };
+
+        window.parseCSV = () => {
+            const file = document.getElementById('csv-file').files[0]; if(!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const lines = e.target.result.split('\n'); let nw = [];
+                for(let i=1; i<lines.length; i++) {
+                    const c = lines[i].split(',');
+                    if(c.length >= 4) nw.push({ id: parseInt(c[0]), name_ar: c[1].trim(), name_fr: c[1].trim(), price_desk: parseInt(c[2]), price_home: parseInt(c[3]) });
+                }
+                if(nw.length>0) { window.siteState.wilayas = nw; saveLocalDB(); populateWilayasSelect(); alert("Importé avec succès"); }
+            }; reader.readAsText(file);
+        };
+
+        window.saveSettings = async () => {
+            const logoFile = document.getElementById('set-logo').files[0];
+            if (logoFile) window.siteState.settings.logo = await compressImage(logoFile, 300);
+            window.siteState.settings.about_ar = document.getElementById('set-about-ar').value;
+            window.siteState.settings.about_fr = document.getElementById('set-about-fr').value;
+            window.siteState.settings.whatsapp = document.getElementById('set-whatsapp').value;
+            saveLocalDB(); updateStaticTexts(); alert("Sauvegardé");
+        };
+
+        // Invoice
+        document.getElementById('inv-date').innerText = new Date().toLocaleDateString('fr-FR');
+        window.addInvRow = () => { const tr = document.createElement('tr'); tr.innerHTML = `<td contenteditable="true">Table / Chaise</td><td contenteditable="true" class="inv-qte" onkeyup="calcInvoice()">1</td><td contenteditable="true" class="inv-pu" onkeyup="calcInvoice()">0</td><td class="inv-tot">0</td>`; document.querySelector('#inv-table tbody').appendChild(tr); };
+        window.calcInvoice = () => {
+            let sub = 0; document.querySelectorAll('#inv-table tbody tr').forEach(tr => {
+                const tot = (parseFloat(tr.querySelector('.inv-qte').innerText)||0) * (parseFloat(tr.querySelector('.inv-pu').innerText)||0);
+                tr.querySelector('.inv-tot').innerText = tot; sub += tot;
+            });
+            document.getElementById('inv-sub').innerText = sub;
+            const tva = document.getElementById('inv-tva-check').checked ? sub * 0.19 : 0;
+            document.getElementById('inv-tva').innerText = tva; document.getElementById('inv-gtotal').innerText = sub + tva;
         };
 
         function compressImage(file, maxSize) {
