@@ -271,12 +271,12 @@
         .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         @media(min-width:768px){ .products-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
         
-        /* حذف الإطار الرفيع عن المنتجات تماماً بناءً على طلبكم */
+        /* حذف الإطار الرفيع عن المنتجات تماماً بناءً على طلبكم المكرر */
         .product-card { 
             background: var(--bg-card); 
             border-radius: 20px; 
             overflow: hidden; 
-            border: none; /* تم الحذف بالكامل هنا */
+            border: none; /* تم الحذف بالكامل للتناسق */
             box-shadow: var(--shadow); 
             transition: var(--transition); 
             cursor: pointer; 
@@ -441,53 +441,38 @@
             justify-content: flex-start;
         }
         
-        /* جعل لوغوات مواقع التواصل الاجتماعي ملونة وثابتة افتراضياً بكفاءة عالية */
+        /* جعل لوغوات مواقع التواصل الاجتماعي ملونة وثابتة تماماً بدون تأثير Hover لتغيير الألوان */
         .social-icons a.social-btn { 
             font-size: 20px; 
-            transition: var(--transition); 
             display: inline-flex;
             width: 38px;
             height: 38px;
             border-radius: 50%;
             align-items: center;
             justify-content: center;
-            border: 1.5px solid currentColor; /* تستخدم نفس لون الأيقونة أوتوماتيكياً للحدود */
+            text-decoration: none;
+            border: 1.5px solid currentColor; /* إطار ملوّن بثبات ومطابق للأيقونة */
+            transition: none; /* إلغاء أي تأثير انتقال أو تغير لوني */
         }
         
         .social-icons a.instagram {
-            color: #e1306c;
-            background: rgba(225, 48, 108, 0.08);
-        }
-        .social-icons a.instagram:hover {
-            background: #e1306c;
-            color: #ffffff;
+            color: #e1306c !important;
+            background: rgba(225, 48, 108, 0.08) !important;
         }
         
         .social-icons a.facebook {
-            color: #1877f2;
-            background: rgba(24, 119, 242, 0.08);
-        }
-        .social-icons a.facebook:hover {
-            background: #1877f2;
-            color: #ffffff;
+            color: #1877f2 !important;
+            background: rgba(24, 119, 242, 0.08) !important;
         }
         
         .social-icons a.tiktok {
-            color: #1a1a1a;
-            background: rgba(26, 26, 26, 0.08);
-        }
-        .social-icons a.tiktok:hover {
-            background: #1a1a1a;
-            color: #ffffff;
+            color: #1a1a1a !important;
+            background: rgba(26, 26, 26, 0.08) !important;
         }
         
         body.dark-mode .social-icons a.tiktok {
-            color: #ffffff;
-            background: rgba(255, 255, 255, 0.08);
-        }
-        body.dark-mode .social-icons a.tiktok:hover {
-            background: #ffffff;
-            color: #1a1a1a;
+            color: #ffffff !important;
+            background: rgba(255, 255, 255, 0.08) !important;
         }
         
         .footer-links li { margin-bottom: 10px; cursor: pointer; font-size: 14px; color: var(--text-muted); transition: var(--transition); }
@@ -671,7 +656,7 @@
                     <h2 class="logo" style="color:var(--text-main);" id="footer-logo"><i class="fas fa-chair"></i> <span class="logo-brand">kourci</span></h2>
                     <p style="margin-top:10px; font-size:14px;" data-ar="متجرك الأول لأرقى الطاولات والكراسي." data-fr="Votre boutique des meilleures tables et chaises.">Votre boutique des meilleures tables et chaises.</p>
                     <div class="social-icons" id="footer-socials">
-                        <!-- جعل لوغوات منصات تواصل الاجتماعي ملونة وثابتة افتراضياً بكفاءة عالية -->
+                        <!-- جعل لوغوات منصات تواصل الاجتماعي ملونة وثابتة افتراضياً بكفاءة عالية وبدون تأثير Hover -->
                         <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-btn facebook"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
@@ -1032,7 +1017,7 @@
             favorites: [],
             products: [
                 { id: '1', name_ar: 'كرسي مودرن فاخر', name_fr: 'Chaise Moderne Luxe', price: 6500, oldPrice: 8500, category: 'كراسي', img: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600', images: ['https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600'], sizes: '45x45x90', colors: 'Beige, Gris, Marron', stock: 15, featured: true, rating: 4.7, desc: "Chaise confortable au design contemporain, rembourrée de mousse haute densité avec pieds solides." },
-                { id: '2', name_ar: 'طاولة طعام خشب', name_fr: 'Table à manger en bois', price: 22900, oldPrice: 28000, category: 'طاولات', img: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600', images: ['https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600'], sizes: '140x80x75, 180x90x75', colors: 'Naturel, Chêne Foncé', stock: 6, featured: true, rating: 4.8, desc: "Table à manger chaleureuse en bois massif d'excellente quality, robuste et résistante." },
+                { id: '2', name_ar: 'طاولة طعام خشب', name_fr: 'Table à manger en bois', price: 22900, oldPrice: 28000, category: 'طاولات', img: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600', images: ['https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600'], sizes: '140x80x75, 180x90x75', colors: 'Naturel, Chêne Foncé', stock: 6, featured: true, rating: 4.8, desc: "Table à manger chaleureuse en bois massif d'excellent quality, robuste et résistante." },
                 { id: '3', name_ar: 'كرسي مريح', name_fr: 'Chaise Confortable', price: 8900, category: 'كراسي', img: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?w=600', images: ['https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?w=600'], sizes: 'Unique', colors: 'Noir, Gris', stock: 12, featured: false, rating: 4.6, desc: "Chaise ergonomique idéale pour de longues heures d'assise, confortable et élégante." },
                 { id: '4', name_ar: 'طاولة خشب كلاسيك', name_fr: 'Table en bois classique', price: 18500, category: 'طاولات', img: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=200', images: ['https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=200'], sizes: '120x80x75', colors: 'Chêne Classique', stock: 5, featured: false, rating: 4.7, desc: "Table classique idéale pour les petits espaces, fabriquée pour durer dans le temps." }
             ],
