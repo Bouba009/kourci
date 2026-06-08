@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
@@ -118,33 +117,37 @@
 
         /* --- Header --- */
         header { background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); position: sticky; top: 0; z-index: 1000; transition: var(--transition); }
-        .header-top { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; }
+        .header-top { display: flex; justify-space-between: space-between; align-items: center; padding: 15px 5%; justify-content: space-between; }
         
-        /* علامة kourci الفاخرة مع أنيميشن مستمر */
+        /* علامة kourci الفاخرة مع أنيميشن مستمر واهتزاز الكرسي كل 10 ثوانٍ */
         .logo { font-size: 26px; font-weight: 800; cursor: pointer; display:flex; align-items:center; gap: 8px;}
-        .logo i { color: var(--primary); font-size: 24px; }
+        .logo i { 
+            color: var(--primary); 
+            font-size: 24px; 
+            display: inline-block;
+            animation: chairWiggle 10s ease-in-out infinite;
+        }
+        
+        @keyframes chairWiggle {
+            0%, 90%, 100% { transform: rotate(0deg) scale(1); }
+            92% { transform: rotate(-15deg) scale(1.15); }
+            94% { transform: rotate(15deg) scale(1.15); }
+            96% { transform: rotate(-10deg) scale(1.05); }
+            98% { transform: rotate(10deg) scale(1.05); }
+        }
         
         .logo-brand {
-            color: var(--primary);
+            color: var(--primary) !important;
             font-size: 28px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            background: linear-gradient(120deg, var(--primary), #e67e22, var(--primary));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: goldShimmer 4s linear infinite, logoPulse 3s ease-in-out infinite;
+            animation: logoPulse 3s ease-in-out infinite;
             display: inline-block;
-        }
-        @keyframes goldShimmer {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
         @keyframes logoPulse {
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(192, 130, 70, 0.2)); }
-            50% { transform: scale(1.03); filter: drop-shadow(0 0 8px rgba(192, 130, 70, 0.4)); }
+            50% { transform: scale(1.03); filter: drop-shadow(0 0 6px rgba(192, 130, 70, 0.35)); }
         }
 
         .search-bar { display: flex; flex: 1; margin: 0 20px; background: var(--bg-body); border: 1px solid var(--border-color); border-radius: 30px; padding: 5px 18px; align-items: center; transition: var(--transition); }
@@ -206,14 +209,14 @@
         .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: var(--transition); }
         .dot.active { width: 20px; border-radius: 8px; background: var(--primary); }
 
-        /* --- قسم الفئات بملء الاطار بالكامل وحجم متناسق --- */
+        /* --- قسم الفئات بملء الاطار وتصغير حجم البطاقات --- */
         .categories-title { padding: 25px 5% 10px; font-size: 20px; font-weight: 700; color: var(--text-main); max-width: 1200px; margin: 0 auto; width: 100%; text-align: left; }
         html[dir="rtl"] .categories-title { text-align: right; }
         .categories { padding: 10px 5% 20px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 1200px; margin: 0 auto; width: 100%; }
         
         .category-card { 
             position: relative; 
-            height: 160px; 
+            height: 120px; /* تم إنقاص الحجم بناءً على طلبكم */
             border-radius: 20px; 
             overflow: hidden; 
             border: 1px solid var(--border-color); 
@@ -226,7 +229,7 @@
         .category-card-img { 
             width: 100%; 
             height: 100%; 
-            object-fit: cover; /* لملء الاطار بالكامل */
+            object-fit: cover; 
             position: absolute; 
             top: 0; 
             left: 0; 
@@ -238,15 +241,15 @@
         .category-card-overlay { 
             position: absolute; 
             top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%); 
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%); 
             z-index: 2; 
         }
         
         .category-card-info { 
             position: absolute; 
-            bottom: 15px; 
-            left: 15px; 
-            right: 15px; 
+            bottom: 12px; 
+            left: 12px; 
+            right: 12px; 
             z-index: 3; 
             color: #ffffff; 
             display: flex; 
@@ -255,9 +258,9 @@
             text-align: left; 
         }
         html[dir="rtl"] .category-card-info { text-align: right; }
-        .category-card-info h3 { font-size: 18px; font-weight: 800; color: #ffffff; margin-bottom: 2px; }
-        .category-card-info p { font-size: 12px; color: rgba(255, 255, 255, 0.8); }
-        .category-card-btn { width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: #ffffff; border: none; display: flex; align-items: center; justify-content: center; font-size: 12px; transition: var(--transition); }
+        .category-card-info h3 { font-size: 16px; font-weight: 800; color: #ffffff; margin-bottom: 2px; }
+        .category-card-info p { font-size: 11px; color: rgba(255, 255, 255, 0.85); }
+        .category-card-btn { width: 28px; height: 28px; border-radius: 50%; background: var(--primary); color: #ffffff; border: none; display: flex; align-items: center; justify-content: center; font-size: 11px; transition: var(--transition); }
         .category-card:hover .category-card-btn { background: #ffffff; color: var(--primary); transform: scale(1.1); }
 
         /* --- Products Grid --- */
@@ -268,8 +271,21 @@
         .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         @media(min-width:768px){ .products-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
         
-        .product-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color); box-shadow: var(--shadow); transition: var(--transition); cursor: pointer; position:relative; display:flex; flex-direction:column; padding: 12px;}
-        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); border-color: var(--primary); }
+        /* إضافة إطار ذهبي رفيع متناسق مع السيم تماماً */
+        .product-card { 
+            background: var(--bg-card); 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 1px solid var(--primary); /* إطار ذهبي رفيع للمنتج */
+            box-shadow: var(--shadow); 
+            transition: var(--transition); 
+            cursor: pointer; 
+            position:relative; 
+            display:flex; 
+            flex-direction:column; 
+            padding: 12px;
+        }
+        .product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
         
         .product-img-wrapper { width: 100%; aspect-ratio: 1 / 1; border-radius: 15px; overflow: hidden; background: #fdfdfd; position: relative; }
         body.dark-mode .product-img-wrapper { background: #151515; }
@@ -346,7 +362,7 @@
         .btn { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 14px; font-size: 16px; font-weight:bold; cursor: pointer; transition: var(--transition); box-shadow: 0 6px 15px rgba(192, 130, 70, 0.2);}
         .btn:hover { background: var(--text-main); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);}
 
-        /* --- WhatsApp Floating Button --- */
+        /* --- الأزرار العائمة المتوازية في نفس السطر --- */
         .whatsapp-fab { 
             position: fixed; bottom: 100px; left: 20px; width: 56px; height: 56px; border-radius: 50%; 
             background: #25d366; color: white; display: flex; justify-content: center; align-items: center; 
@@ -355,7 +371,6 @@
         }
         .whatsapp-fab:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6); }
 
-        .fab-container { position: fixed; bottom: 170px; left: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 999; }
         .fab { width: 56px; height: 56px; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; font-size: 22px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: var(--transition); }
         .fab:hover { transform: scale(1.1); }
         .fab-custom { background: var(--primary); box-shadow: 0 4px 15px rgba(192, 130, 70, 0.3); }
@@ -397,7 +412,6 @@
         footer { background: var(--bg-card); color: var(--text-main); padding: 40px 5% 30px; margin-top: 40px; border-top: 1px solid var(--border-color); transition: var(--transition); max-width: 1200px; margin-left: auto; margin-right: auto; width: 100%; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
         
-        /* تفعيل ظهور أيقونات التواصل الاجتماعي في سطر واحد */
         .social-icons {
             display: flex;
             gap: 12px;
@@ -427,7 +441,7 @@
         /* إطار ذهبي للخريطة */
         .map-container { 
             margin-top: 10px; 
-            border: 3px solid var(--primary); /* إطار ذهبي رائع ومتناسق */
+            border: 3px solid var(--primary); /* إطار ذهبي رائع ومتناسق مع لون الثيم */
             border-radius: 18px; 
             overflow: hidden; 
             box-shadow: var(--shadow); 
@@ -519,7 +533,6 @@
         <header>
             <div class="header-top">
                 <i class="fas fa-bars header-icons" id="menu-btn"></i>
-                <!-- اسم kourci الذهبي والمنبض باستمرار -->
                 <div class="logo" id="site-logo" onclick="showPage('home')" style="cursor:pointer;"><i class="fas fa-chair"></i> <span class="logo-brand">kourci</span></div>
                 
                 <div class="header-icons">
@@ -644,14 +657,12 @@
             </div>
         </div>
 
-        <div class="fab-container">
-            <div class="fab fab-custom" onclick="openModal('custom-modal')" title="Fabrication sur mesure"><i class="fas fa-hammer"></i></div>
-        </div>
-        
-        <div class="whatsapp-fab" id="whatsapp-fab" onclick="openWhatsapp()"><i class="fab fa-whatsapp"></i></div>
+        <!-- زر المطرقة العائم على الجهة اليمنى والواتساب على الجهة اليسرى في نفس السطر متوازيان -->
+        <div class="fab fab-custom" id="hammer-fab" onclick="openModal('custom-modal')" title="Fabrication sur mesure" style="position: fixed; bottom: 100px; right: 20px; z-index: 1002;"><i class="fas fa-hammer"></i></div>
+        <div class="whatsapp-fab" id="whatsapp-fab" onclick="openWhatsapp()" style="position: fixed; bottom: 100px; left: 20px; z-index: 1002;"><i class="fab fa-whatsapp"></i></div>
     </div>
 
-    <!-- نافذة طلباتي الخاصة بالزبون تظهر الطلبات ولا تظهر دخول الادمن -->
+    <!-- نافذة طلباتي الخاصة بالزبون -->
     <div class="modal" id="my-orders-modal">
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('my-orders-modal')"></i>
@@ -720,7 +731,7 @@
     <div class="modal" id="about-modal"><div class="modal-content"><i class="fas fa-times close-modal" onclick="closeModal('about-modal')"></i><h2 data-ar="من نحن" data-fr="À propos">À propos</h2><p id="txt-about" style="margin-top:10px; white-space:pre-wrap;"></p></div></div>
     <div class="modal" id="contact-modal"><div class="modal-content"><i class="fas fa-times close-modal" onclick="closeModal('contact-modal')"></i><h2 data-ar="اتصل بنا" data-fr="Contact">Contact</h2><p id="txt-contact" style="margin-top:10px; white-space:pre-wrap;"></p></div></div>
 
-    <!-- لوحة تحكم الإدارة الآمنة بالكامل -->
+    <!-- لوحة تحكم الإدارة -->
     <div id="admin-login-screen">
         <div class="login-box fade-in">
             <h2 style="color:var(--primary); margin-bottom: 20px;">DASHBOARD | KOURCI</h2>
@@ -959,7 +970,7 @@
 
         // Local Storage State Management
         window.siteState = {
-            lang: 'fr', // لغة فرنسية افتراضية بناءً على طلبكم
+            lang: 'fr', 
             favorites: [],
             products: [
                 { id: '1', name_ar: 'كرسي مودرن فاخر', name_fr: 'Chaise Moderne Luxe', price: 6500, oldPrice: 8500, category: 'كراسي', img: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600', images: ['https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600'], sizes: '45x45x90', colors: 'Beige, Gris, Marron', stock: 15, featured: true, rating: 4.7, desc: "Chaise confortable au design contemporain, rembourrée de mousse haute densité avec pieds solides." },
@@ -1049,7 +1060,6 @@
             document.documentElement.setAttribute('lang', window.siteState.lang);
             document.querySelectorAll('[data-ar]').forEach(el => el.innerText = el.getAttribute(`data-${window.siteState.lang}`));
             
-            // تحديث شريط البحث تماشياً مع اللغة الحالية
             const searchInput = document.getElementById('search-input');
             if(searchInput) {
                 searchInput.placeholder = window.siteState.lang === 'ar' ? "ابحث عن طاولة أو كرسي..." : "Rechercher une table ou une chaise...";
@@ -1099,7 +1109,6 @@
                 icon.className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
             }
 
-            // تطبيق اللغة الفرنسية كقيمة افتراضية مسبقة عند عدم تواجدها
             if(!localStorage.getItem('mobiliaDB')) {
                 window.siteState.lang = 'fr';
             }
@@ -1127,7 +1136,6 @@
 
             document.querySelectorAll('.bottom-nav-item').forEach(item => item.classList.remove('active'));
 
-            // تحويل رابط لوحة التحكم ليكون url/admin1 بناءً على طلبكم
             if (hash === '#admin1') {
                 if(sessionStorage.getItem('adminLogged') === 'true') {
                     document.getElementById('admin-panel').style.display = 'flex';
@@ -1138,11 +1146,21 @@
             } else if (hash.startsWith('#product-')) {
                 document.getElementById('frontend-app').style.display = 'block';
                 document.getElementById('product-details-page').style.display = 'block';
+                
+                // إخفاء زر المطرقة لمنع التداخل مع زر "اطلب الآن"
+                const hammerBtn = document.getElementById('hammer-fab');
+                if(hammerBtn) hammerBtn.style.display = 'none';
+
                 renderProductDetails(hash.replace('#product-', ''));
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // يعود للأعلى لتمكين التمرير للأسفل
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
             } else {
                 document.getElementById('frontend-app').style.display = 'block';
                 document.getElementById('home-page').style.display = 'block';
+                
+                // إعادة إظهار زر المطرقة في الصفحة الرئيسية
+                const hammerBtn = document.getElementById('hammer-fab');
+                if(hammerBtn) hammerBtn.style.display = 'flex';
+
                 const homeNav = document.getElementById('nav-home');
                 if(homeNav) homeNav.classList.add('active');
                 renderCategories(); renderFrontendProducts(); populateWilayasSelect(); updateStaticTexts(); renderBanners();
@@ -1288,7 +1306,6 @@
             `).join('');
         }
 
-        // عرض قائمة الطلبات الخاصة بالزبون المخزنة محلياً لتتبع الحالات
         function showMyOrders() {
             const container = document.getElementById('my-orders-list');
             const submitted = JSON.parse(localStorage.getItem('mySubmittedOrders') || '[]');
@@ -1320,7 +1337,6 @@
             }).join('');
         }
 
-        // تفاصيل المنتج
         function renderProductDetails(id) {
             const fabBuyNow = document.getElementById('fab-buy-now');
             if (fabBuyNow) fabBuyNow.style.display = 'flex';
@@ -1427,7 +1443,6 @@
             window.siteState.orders.push(order);
             saveLocalDB();
             
-            // حفظ كود الطلب فريداً في المتصفح لمتابعته لاحقاً في قائمة طلباتي للزبائن
             const mySubmitted = JSON.parse(localStorage.getItem('mySubmittedOrders') || '[]');
             mySubmitted.push(order.id);
             localStorage.setItem('mySubmittedOrders', JSON.stringify(mySubmitted));
@@ -1463,7 +1478,7 @@
             setTimeout(() => { closeModal('success-modal'); }, 2000);
         };
 
-        // --- Admin Logic (حماية مشفرة مسبقاً) ---
+        // --- Admin Logic ---
         window.verifyAdmin = () => {
             const u = document.getElementById('admin-user').value;
             const p = document.getElementById('admin-pass').value;
@@ -1672,41 +1687,6 @@
             const amount = parseFloat(document.getElementById('acc-amount').value); const desc = document.getElementById('acc-desc').value; if(!amount || !desc) return;
             window.siteState.accounting.push({ id:'a'+Date.now(), date: new Date().toLocaleDateString('fr-FR'), type: document.getElementById('acc-type').value, amount: amount, desc: desc });
             saveLocalDB(); renderAccounting();
-        };
-
-        window.parseCSV = () => {
-            const file = document.getElementById('csv-file').files[0]; if(!file) return;
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const lines = e.target.result.split('\n'); let nw = [];
-                for(let i=1; i<lines.length; i++) {
-                    const c = lines[i].split(',');
-                    if(c.length >= 4) nw.push({ id: parseInt(c[0]), name_ar: c[1].trim(), name_fr: c[1].trim(), price_desk: parseInt(c[2]), price_home: parseInt(c[3]) });
-                }
-                if(nw.length>0) { window.siteState.wilayas = nw; saveLocalDB(); populateWilayasSelect(); alert("تم التحديث"); }
-            }; reader.readAsText(file);
-        };
-
-        window.saveSettings = async () => {
-            const logoFile = document.getElementById('set-logo').files[0];
-            if (logoFile) window.siteState.settings.logo = await compressImage(logoFile, 300);
-            window.siteState.settings.about_ar = document.getElementById('set-about-ar').value;
-            window.siteState.settings.about_fr = document.getElementById('set-about-fr').value;
-            window.siteState.settings.whatsapp = document.getElementById('set-whatsapp').value;
-            saveLocalDB(); updateStaticTexts(); alert("تم حفظ الإعدادات");
-        };
-
-        // Invoice
-        document.getElementById('inv-date').innerText = new Date().toLocaleDateString('fr-FR');
-        window.addInvRow = () => { const tr = document.createElement('tr'); tr.innerHTML = `<td contenteditable="true">Table / Chaise</td><td contenteditable="true" class="inv-qte" onkeyup="calcInvoice()">1</td><td contenteditable="true" class="inv-pu" onkeyup="calcInvoice()">0</td><td class="inv-tot">0</td>`; document.querySelector('#inv-table tbody').appendChild(tr); };
-        window.calcInvoice = () => {
-            let sub = 0; document.querySelectorAll('#inv-table tbody tr').forEach(tr => {
-                const tot = (parseFloat(tr.querySelector('.inv-qte').innerText)||0) * (parseFloat(tr.querySelector('.inv-pu').innerText)||0);
-                tr.querySelector('.inv-tot').innerText = tot; sub += tot;
-            });
-            document.getElementById('inv-sub').innerText = sub;
-            const tva = document.getElementById('inv-tva-check').checked ? sub * 0.19 : 0;
-            document.getElementById('inv-tva').innerText = tva; document.getElementById('inv-gtotal').innerText = sub + tva;
         };
 
         function compressImage(file, maxSize) {
