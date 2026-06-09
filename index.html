@@ -192,7 +192,7 @@
         .sidebar ul li { padding: 15px 10px; border-bottom: 1px solid var(--border-color); font-size: 16px; cursor: pointer; color: var(--text-main); transition: var(--transition); display: flex; align-items: center; gap: 12px; border-radius: 8px;}
         .sidebar ul li:hover { background: rgba(192, 130, 70, 0.15); color: var(--primary); }
 
-        /* --- Slider (انقاص طوله) --- */
+        /* --- Slider (انقاص طوله ليتناسب مع البانر الجديد) --- */
         .hero-slider-container { padding: 0 5%; margin-top: 15px; max-width: 1200px; margin-left: auto; margin-right: auto; }
         .hero-slider { width: 100%; height: 260px; position: relative; overflow: hidden; border-radius: 24px; box-shadow: var(--shadow); background: #ddd; }
         .slide { width: 100%; height: 100%; position: absolute; top: 0; left: 0; opacity: 0; transition: opacity 1.2s ease-in-out; background-size: cover; background-position: center; cursor:pointer; display: flex; align-items: center; padding: 0 10%;}
@@ -270,7 +270,6 @@
         
         .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
         @media(min-width:768px){ .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
-        @media(min-width:992px){ .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
         
         .product-card { 
             background: var(--bg-card); 
@@ -554,24 +553,6 @@
         .prod-moq-label { text-align: left; }
         html[dir="rtl"] .prod-moq-label { text-align: right !important; }
 
-        /* تنسيق صورة البانر الثابتة في الأعلى */
-        .static-top-banner {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 5px 5% 0;
-            box-sizing: border-box;
-        }
-        .static-top-banner img {
-            width: 100%;
-            height: auto;
-            max-height: 220px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            display: block;
-        }
-
     </style>
 </head>
 <body>
@@ -587,20 +568,13 @@
         <span data-ar="البيع بالجملة فقط - نلبي طلبات التجار والموزعين وتجهيز المحلات" data-fr="VENTE EN GROS UNIQUEMENT - Aménagement de projets et revendeurs">VENTE EN GROS UNIQUEMENT - Aménagement de projets et revendeurs</span>
     </div>
 
-    <!-- إدراج البانر المطلوب في أعلى الموقع فوق الهيدر مباشرة -->
-    <div class="static-top-banner">
-        <a href="#home-page">
-            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_vgG3b0q-h2T18HVgKpsTuKMj587blNVl-YaCWl85n-akii_zLWMSIvEc0NYA8X6HbGBsmjpXGJd-GzMEuK7WL4dwdXPx1N-qroyX4Q6RYcdRv4WS6x8oh9NL5sK_Ho3VHkiUzSl-775vhkxtSR6kkKABagcz_EIT9MXD2D300gXz6gFL7C3QdxYvV8E/s1536/1000023646.png" alt="Kourci Banner">
-        </a>
-    </div>
-
     <div id="top-ad-banner">
         <i class="fas fa-times close-ad" onclick="this.parentElement.style.display='none'"></i>
         <div id="top-ad-content"></div>
     </div>
 
     <div id="frontend-app">
-        <header style="margin-top: 10px;">
+        <header>
             <div class="header-top">
                 <i class="fas fa-bars header-icons" id="menu-btn"></i>
                 <div class="logo" id="site-logo" onclick="showPage('home')" style="cursor:pointer;">
@@ -638,6 +612,7 @@
 
         <div id="home-page">
             <div class="hero-slider-container">
+                <!-- تم استبدال صورة البانر السابقة لتصبح صورتك المحددة هي الشرائح الترويجية الأساسية هنا -->
                 <div class="hero-slider" id="hero-slider"></div>
             </div>
             
@@ -732,7 +707,7 @@
         <div class="whatsapp-fab" id="whatsapp-fab" onclick="openWhatsapp()" style="position: fixed; bottom: 100px; left: 20px; z-index: 1002;"><i class="fab fa-whatsapp"></i></div>
     </div>
 
-    <!-- نافذة طلباتي الخاصة بالزبون -->
+    <!-- canevas / modals admin -->
     <div class="modal" id="my-orders-modal">
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('my-orders-modal')"></i>
@@ -1027,7 +1002,7 @@
         </div>
     </div>
 
-    <!-- نافذة إضافة وتعديل المنتجات بالإدارة -->
+    <!-- نافذة إضافة وتعديل المنتجات بالإدارة مع خاصية MOQ الخاصة بالجملة -->
     <div class="modal" id="add-product-modal">
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('add-product-modal')"></i>
@@ -1071,7 +1046,7 @@
         </div>
     </div>
 
-    <!-- نافذة إضافة فئة جديدة -->
+    <!-- نافذة إضافة فئة جديدة للمسؤول -->
     <div class="modal" id="add-category-modal">
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('add-category-modal')"></i>
@@ -1085,7 +1060,7 @@
         </div>
     </div>
 
-    <!-- نافذة طباعة ملصق الشحن -->
+    <!-- نافذة طباعة ملصق الشحن لطلبات الجملة -->
     <div class="modal" id="print-label-modal">
         <div class="modal-content" style="max-width: 400px; text-align: left;">
             <i class="fas fa-times close-modal" onclick="closeModal('print-label-modal')"></i>
@@ -1101,7 +1076,7 @@
                 <p><strong>Destination:</strong> <span id="lbl-wilaya"></span> - <span id="lbl-address"></span></p>
                 <p style="border-top:1px dashed #333; padding-top:5px;"><strong>Produit(s):</strong> <span id="lbl-prodName"></span></p>
                 <p><strong>Prix Unit:</strong> <span id="lbl-prodPrice"></span> DA</p>
-                <p><strong>Livraison:</strong> <span id="lbl-shipPrice"></span> DA</p>
+                <p><strong>Livraison Cargo:</strong> <span id="lbl-shipPrice"></span> DA</p>
                 <p style="font-size:16px; border-top:1px solid #333; padding-top:5px;"><strong>TOTAL COMPLET:</strong> <span id="lbl-total"></span> DA</p>
                 <div id="qrcode" style="display:flex; justify-content:center; margin-top:15px;"></div>
             </div>
@@ -1120,7 +1095,7 @@
             return encrypted === "c5c6d3c6d3c695969787";
         }
 
-        // إدراج المنتجات الستة المطلوبة مباشرة مع أسعار وتفاصيل جملة احترافية
+        // قائمة المنتجات الستة المحددة
         const requestedProducts = [
             { id: 'p_g1', name_ar: 'كرسي حديدي عصري للحدائق والمقاهي', name_fr: 'Chaise de Jardin Moderne', price: 4200, oldPrice: 5800, category: 'كراسي', img: 'https://m.media-amazon.com/images/I/61kvcv7DnaL._AC_UF894,1000_QL80_FMwebp_.jpg', images: ['https://m.media-amazon.com/images/I/61kvcv7DnaL._AC_UF894,1000_QL80_FMwebp_.jpg'], sizes: '45x45x85', colors: 'Gris, Noir', stock: 450, featured: true, rating: 4.8, desc: "كرسي حديدي فاخر فائق المتانة مخصص للفنادق والمقاهي والحدائق الخارجية. معالج ضد الصدأ والعوامل الجوية.", moq: 20 },
             { id: 'p_g2', name_ar: 'كرسي مكتب طبي مريح ومبطن', name_fr: 'Chaise de Bureau Médicale', price: 9500, oldPrice: 12500, category: 'كراسي', img: 'https://m.media-amazon.com/images/I/71ZC+USgsvL._AC_UF894,1000_QL80_FMwebp_.jpg', images: ['https://m.media-amazon.com/images/I/71ZC+USgsvL._AC_UF894,1000_QL80_FMwebp_.jpg'], sizes: 'Unique', colors: 'Noir, Gris', stock: 150, featured: true, rating: 4.9, desc: "كرسي مكتبي مريح ذو تصميم هندسي يدعم الظهر والفقرات ومزود بمساند مريحة ومتحركة.", moq: 10 },
@@ -1130,15 +1105,24 @@
             { id: 'p_g6', name_ar: 'كرسي حدائق حديدي فاخر بلون أزرق مخضر', name_fr: 'Chaise Jardin Acier Bleuté', price: 4800, oldPrice: 6200, category: 'كراسي', img: 'https://medias.maisonsdumonde.com/images/ar_1:1,c_pad,f_auto,q_auto,w_425/v1/mkp/M25042363_1/juego-de-2-sillas-de-jardin-acero-azul-verdoso.jpg', images: ['https://medias.maisonsdumonde.com/images/ar_1:1,c_pad,f_auto,q_auto,w_425/v1/mkp/M25042363_1/juego-de-2-sillas-de-jardin-acero-azul-verdoso.jpg'], sizes: '40x40x80', colors: 'Bleu-Vert', stock: 260, featured: false, rating: 4.7, desc: "كرسي خارجي أنيق قابل للطي ومقاوم للرطوبة والشمس، ممتاز للمنازل والساحات الخارجية للمطاعم.", moq: 16 }
         ];
 
+        // البانر المطلوب مدمجاً مباشرة كصورة عرض الشرائح الرئيسية
+        const requestedBanners = [
+            { 
+                id: 'b1', 
+                img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_vgG3b0q-h2T18HVgKpsTuKMj587blNVl-YaCWl85n-akii_zLWMSIvEc0NYA8X6HbGBsmjpXGJd-GzMEuK7WL4dwdXPx1N-qroyX4Q6RYcdRv4WS6x8oh9NL5sK_Ho3VHkiUzSl-775vhkxtSR6kkKABagcz_EIT9MXD2D300gXz6gFL7C3QdxYvV8E/s1536/1000023646.png', 
+                title_ar: 'معرض كورتسي لطاولات وكراسي الجملة', 
+                title_fr: 'Showroom Kourci Gros', 
+                desc_ar: 'نوفر أقوى تشكيلات الأثاث الفاخر للفنادق، المقاهي، والمشاريع التجارية بأسعار حصرية', 
+                desc_fr: 'Mobilier haut de gamme pour professionnels et revendeurs avec tarifs dégressifs' 
+            }
+        ];
+
         // Local Storage State Management
         window.siteState = {
             lang: 'fr', 
             favorites: [],
             products: requestedProducts,
-            banners: [
-                { id:'b1', img:'https://images.unsplash.com/photo-1503602642458-232111445657?w=1000', title_ar: 'أثاث فنادق ومقاهي ومحلات بالجملة', title_fr: 'Mobilier de Cafés et Hôtels en Gros', desc_ar: 'طاولات وكراسي بجودة تصنيع عالية وتصاميم عصرية تناسب المشاريع الكبرى', desc_fr: 'Des tables et des chaises de haute qualité pour les professionnels' },
-                { id:'b2', img:'https://images.unsplash.com/photo-1581428982868-e410dd047a90?w=1000', title_ar: 'أثاث فاخر بأقوى الأسعار التنافسية', title_fr: 'Meubles robustes à tarifs dégressifs', desc_ar: 'صنع خصيصاً للموزعين بأسعار وعروض جملة حصرية ومتميزة', desc_fr: 'Conçus pour un confort durable et un look exceptionnel' }
-            ],
+            banners: requestedBanners,
             orders: [], customOrders: [], accounting: [],
             categories: [
                 {id:'c1', name_ar:'كراسي', name_fr:'Chaises', sub_ar:'تشكيلة متنوعة بالجملة', sub_fr:'Collection de gros variée', img:'https://images.unsplash.com/photo-1503602642458-232111445657?w=600'},
@@ -1155,10 +1139,11 @@
         // Safe Load Database locally
         function saveLocalDB() { localStorage.setItem('mobiliaDB', JSON.stringify(window.siteState)); }
         function loadLocalDB() {
-            // فرض تحديث المنتجات الجديدة والبانر وحذف القديمة لمرة واحدة وبسرعة
-            if (!localStorage.getItem('kourci_gros_seeded')) {
+            // فرض تحديث المنتجات الجديدة وصورة البانر وتجاوز التخزين المؤقت لمرة واحدة
+            if (!localStorage.getItem('kourci_gros_seeded_v2')) {
                 window.siteState.products = requestedProducts;
-                localStorage.setItem('kourci_gros_seeded', 'true');
+                window.siteState.banners = requestedBanners;
+                localStorage.setItem('kourci_gros_seeded_v2', 'true');
                 saveLocalDB();
             }
 
