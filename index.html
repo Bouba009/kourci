@@ -1,11 +1,9 @@
-
-
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOURCI | Tables et Chaises</title>
+    <title>KOURCI | Tables et Chaises en Gros</title>
 
     <script>
         (function() {
@@ -271,14 +269,14 @@
         html[dir="rtl"] .section-title { text-align: right; }
         
         .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-        @media(min-width:768px){ .products-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; } }
+        @media(min-width:768px){ .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+        @media(min-width:992px){ .products-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
         
-        /* حذف الإطار الرفيع عن المنتجات تماماً بناءً على طلبكم المكرر */
         .product-card { 
             background: var(--bg-card); 
             border-radius: 20px; 
             overflow: hidden; 
-            border: none; /* تم الحذف بالكامل للتناسق */
+            border: none;
             box-shadow: var(--shadow); 
             transition: var(--transition); 
             cursor: pointer; 
@@ -342,9 +340,8 @@
         .details-img-wrap img { width: 100%; max-width:450px; border-radius: 20px; aspect-ratio:1/1; object-fit:cover; box-shadow: var(--shadow);}
         .details-info { flex: 1; }
         
-        /* معالجة استمارة وخانات الادخال لتظهر بتباين ممتاز في الوضع العادي والليل */
         .order-form { 
-            background: #f1f3f6; /* خلفية رمادية متباينة ممتازة بالوضع العادي */
+            background: #f1f3f6; 
             padding: 30px; 
             border-radius: 24px; 
             margin-top: 20px; 
@@ -365,13 +362,13 @@
         .pro-input, select.pro-input, .form-control { 
             width: 100%; 
             padding: 14px 40px 14px 15px; 
-            border: 1px solid #ccd1d9; /* حدود صلبة واضحة في الوضع العادي */
+            border: 1px solid #ccd1d9; 
             border-radius: 14px; 
             outline: none; 
             transition: var(--transition); 
             font-family: inherit; 
             font-size: 15px; 
-            background: #ffffff; /* خانات بيضاء نقية واضحة على الخلفية الرمادية للاستمارة */
+            background: #ffffff; 
             color: #1a1a1a; 
         }
         body.dark-mode .pro-input, body.dark-mode select.pro-input, body.dark-mode .form-control {
@@ -392,7 +389,6 @@
         .btn { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 14px; font-size: 16px; font-weight:bold; cursor: pointer; transition: var(--transition); box-shadow: 0 6px 15px rgba(192, 130, 70, 0.2);}
         .btn:hover { background: var(--text-main); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);}
 
-        /* --- الأزرار العائمة المتوازية في نفس السطر --- */
         .whatsapp-fab { 
             position: fixed; bottom: 100px; left: 20px; width: 56px; height: 56px; border-radius: 50%; 
             background: #25d366; color: white; display: flex; justify-content: center; align-items: center; 
@@ -443,7 +439,6 @@
             justify-content: flex-start;
         }
         
-        /* جعل لوغوات مواقع التواصل الاجتماعي ملونة وثابتة تماماً بدون تأثير Hover لتغيير الألوان */
         .social-icons a.social-btn { 
             font-size: 20px; 
             display: inline-flex;
@@ -453,8 +448,8 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            border: 1.5px solid currentColor; /* إطار ملوّن بثبات ومطابق للأيقونة */
-            transition: none; /* إلغاء أي تأثير انتقال أو تغير لوني */
+            border: 1.5px solid currentColor; 
+            transition: none; 
         }
         
         .social-icons a.instagram {
@@ -480,10 +475,9 @@
         .footer-links li { margin-bottom: 10px; cursor: pointer; font-size: 14px; color: var(--text-muted); transition: var(--transition); }
         .footer-links li:hover { color: var(--primary); }
         
-        /* إطار ذهبي رفيع للغاية للخريطة */
         .map-container { 
             margin-top: 10px; 
-            border: 1px solid var(--primary); /* إطار ذهبي رفيع وجميل */
+            border: 1px solid var(--primary); 
             border-radius: 18px; 
             overflow: hidden; 
             box-shadow: var(--shadow); 
@@ -557,13 +551,47 @@
         .dash-card:active { transform: scale(0.97); transition: transform 0.1s; -webkit-tap-highlight-color: transparent; }
         .dash-card:hover { transform: translateY(-5px); }
 
+        .prod-moq-label { text-align: left; }
+        html[dir="rtl"] .prod-moq-label { text-align: right !important; }
+
+        /* تنسيق صورة البانر الثابتة في الأعلى */
+        .static-top-banner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5px 5% 0;
+            box-sizing: border-box;
+        }
+        .static-top-banner img {
+            width: 100%;
+            height: auto;
+            max-height: 220px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            display: block;
+        }
+
     </style>
 </head>
 <body>
 
     <div id="global-loader">
         <div class="global-spinner"></div>
-        <h2 style="color:var(--primary); font-weight:bold; letter-spacing: 2px;">KOURCI</h2>
+        <h2 style="color:var(--primary); font-weight:bold; letter-spacing: 2px;">KOURCI GROS</h2>
+    </div>
+
+    <!-- شريط البيع بالجملة الحصري -->
+    <div style="background: linear-gradient(90deg, var(--primary) 0%, #a26932 100%); color:white; text-align:center; padding:8px; font-weight:bold; font-size:12px; letter-spacing:1px; z-index: 1001; position: relative;">
+        <i class="fas fa-boxes"></i> 
+        <span data-ar="البيع بالجملة فقط - نلبي طلبات التجار والموزعين وتجهيز المحلات" data-fr="VENTE EN GROS UNIQUEMENT - Aménagement de projets et revendeurs">VENTE EN GROS UNIQUEMENT - Aménagement de projets et revendeurs</span>
+    </div>
+
+    <!-- إدراج البانر المطلوب في أعلى الموقع فوق الهيدر مباشرة -->
+    <div class="static-top-banner">
+        <a href="#home-page">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj_vgG3b0q-h2T18HVgKpsTuKMj587blNVl-YaCWl85n-akii_zLWMSIvEc0NYA8X6HbGBsmjpXGJd-GzMEuK7WL4dwdXPx1N-qroyX4Q6RYcdRv4WS6x8oh9NL5sK_Ho3VHkiUzSl-775vhkxtSR6kkKABagcz_EIT9MXD2D300gXz6gFL7C3QdxYvV8E/s1536/1000023646.png" alt="Kourci Banner">
+        </a>
     </div>
 
     <div id="top-ad-banner">
@@ -572,10 +600,14 @@
     </div>
 
     <div id="frontend-app">
-        <header>
+        <header style="margin-top: 10px;">
             <div class="header-top">
                 <i class="fas fa-bars header-icons" id="menu-btn"></i>
-                <div class="logo" id="site-logo" onclick="showPage('home')" style="cursor:pointer;"><i class="fas fa-chair"></i> <span class="logo-brand">kourci</span></div>
+                <div class="logo" id="site-logo" onclick="showPage('home')" style="cursor:pointer;">
+                    <i class="fas fa-chair"></i> 
+                    <span class="logo-brand">kourci</span>
+                    <span style="font-size:12px; background:var(--primary); color:white; padding:2px 6px; border-radius:4px; margin-left:5px; text-transform:uppercase; font-weight:bold;">Gros</span>
+                </div>
                 
                 <div class="header-icons">
                     <button class="theme-toggle-btn" onclick="toggleDarkMode()" title="Mode sombre/lumineux">
@@ -613,32 +645,33 @@
             <div class="categories" id="categories-container"></div>
             
             <div class="products-section">
-                <h2 class="section-title" data-ar="الأكثر مبيعاً" data-fr="Les plus vendus">Les plus vendus</h2>
+                <h2 class="section-title" data-ar="عروض البيع بالجملة" data-fr="Offres de Gros">Offres de Gros</h2>
                 <div class="products-grid" id="products-grid">
                     <div class="loader" id="products-loader" style="display: block;"></div>
                 </div>
             </div>
 
+            <!-- ميزات تناسب تجارة الجملة والـ B2B -->
             <div class="features-row">
                 <div class="feature-item">
-                    <i class="fas fa-headset"></i>
-                    <h4 data-ar="خدمة العملاء" data-fr="Service Client">Service Client</h4>
-                    <p data-ar="24/7 في خدمتكم" data-fr="24/7 à votre service">24/7 à votre service</p>
+                    <i class="fas fa-users-cog"></i>
+                    <h4 data-ar="دعم قطاع الأعمال" data-fr="Support B2B">Support B2B</h4>
+                    <p data-ar="مرافقة كاملة للمشاريع والموزعين" data-fr="Accompagnement des projets">Accompagnement des projets</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <h4 data-ar="دفع آمن" data-fr="Paiement Sécurisé">Paiement Sécurisé</h4>
-                    <p data-ar="خيارات دفع متعددة" data-fr="Plusieurs options de paiement">Plusieurs options de paiement</p>
+                    <i class="fas fa-tags"></i>
+                    <h4 data-ar="أسعار الجملة التنافسية" data-fr="Tarifs de Gros">Tarifs de Gros</h4>
+                    <p data-ar="هوامش ربح ممتازة للشركاء" data-fr="Excellentes marges revendeurs">Excellentes marges revendeurs</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-award"></i>
-                    <h4 data-ar="ضمان الجودة" data-fr="Garantie de Qualité">Garantie de Qualité</h4>
-                    <p data-ar="منتجات أصلية 100%" data-fr="Produits 100% originaux">Produits 100% originaux</p>
+                    <i class="fas fa-truck-loading"></i>
+                    <h4 data-ar="شحن مخصص وآمن" data-fr="Logistique de Gros">Logistique de Gros</h4>
+                    <p data-ar="شحن آمن للكميات الكبيرة" data-fr="Livraison sécurisée de volumes">Livraison sécurisée de volumes</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h4 data-ar="توصيل سريع" data-fr="Livraison Rapide">Livraison Rapide</h4>
-                    <p data-ar="إلى باب منزلك" data-fr="À votre porte">À votre porte</p>
+                    <i class="fas fa-industry"></i>
+                    <h4 data-ar="قدرة إنتاجية ضخمة" data-fr="Production Robuste">Production Robuste</h4>
+                    <p data-ar="تجهيز قاعات ومحلات بالكامل" data-fr="Aménagement de grands espaces">Aménagement de grands espaces</p>
                 </div>
             </div>
         </div>
@@ -648,17 +681,14 @@
                 <i class="fas fa-arrow-right"></i> <span data-ar="عودة" data-fr="Retour">Retour</span>
             </button>
             <div class="details-container" id="single-product-container"></div>
-            
-            <!-- تم حذف زر اشتري الآن العائم بأسفل صفحة المنتج بناءً على طلبكم -->
         </div>
 
         <footer>
             <div class="footer-grid">
                 <div>
                     <h2 class="logo" style="color:var(--text-main);" id="footer-logo"><i class="fas fa-chair"></i> <span class="logo-brand">kourci</span></h2>
-                    <p style="margin-top:10px; font-size:14px;" data-ar="متجرك الأول لأرقى الطاولات والكراسي." data-fr="Votre boutique des meilleures tables et chaises.">Votre boutique des meilleures tables et chaises.</p>
+                    <p style="margin-top:10px; font-size:14px;" data-ar="شريككم الموثوق في بيع الطاولات والكراسي الفاخرة بالجملة وتجهيز المشاريع." data-fr="Votre partenaire de confiance pour la vente en gros de tables et chaises.">Votre partenaire de confiance pour la vente en gros de tables et chaises.</p>
                     <div class="social-icons" id="footer-socials">
-                        <!-- جعل لوغوات منصات تواصل الاجتماعي ملونة وثابتة افتراضياً بكفاءة عالية وبدون تأثير Hover -->
                         <a href="#" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-btn facebook"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-btn tiktok"><i class="fab fa-tiktok"></i></a>
@@ -679,10 +709,10 @@
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size:12px; color: var(--text-muted);">© 2026 KOURCI. All rights reserved.</p>
+            <p style="text-align: center; margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 20px; font-size:12px; color: var(--text-muted);">© 2026 KOURCI GROS. All rights reserved.</p>
         </footer>
 
-        <!-- القائمة السفلية مع ربط طلباتي بالنافذة المنبثقة للزبائن -->
+        <!-- القائمة السفلية -->
         <div class="bottom-nav">
             <div class="bottom-nav-item active" onclick="showPage('home')" id="nav-home">
                 <i class="fas fa-home"></i>
@@ -698,7 +728,6 @@
             </div>
         </div>
 
-        <!-- زر المطرقة العائم على الجهة اليمنى والواتساب على الجهة اليسرى في نفس السطر متوازيان -->
         <div class="fab fab-custom" id="hammer-fab" onclick="openModal('custom-modal')" title="Fabrication sur mesure" style="position: fixed; bottom: 100px; right: 20px; z-index: 1002;"><i class="fas fa-hammer"></i></div>
         <div class="whatsapp-fab" id="whatsapp-fab" onclick="openWhatsapp()" style="position: fixed; bottom: 100px; left: 20px; z-index: 1002;"><i class="fab fa-whatsapp"></i></div>
     </div>
@@ -708,9 +737,7 @@
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('my-orders-modal')"></i>
             <h2 style="text-align:center; color:var(--primary); margin-bottom: 20px;" data-ar="متابعة طلباتي" data-fr="Mes Commandes">Mes Commandes</h2>
-            <div id="my-orders-list" style="max-height: 400px; overflow-y: auto;">
-                <!-- تُعبأ برمجياً -->
-            </div>
+            <div id="my-orders-list" style="max-height: 400px; overflow-y: auto;"></div>
         </div>
     </div>
 
@@ -725,25 +752,25 @@
     <div class="modal" id="custom-modal">
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('custom-modal')"></i>
-            <h2 style="text-align:center; color:var(--primary); margin-bottom: 20px;" data-ar="تفصيل طاولات وكراسي حسب الطلب" data-fr="Fabrication sur mesure">Fabrication sur mesure</h2>
+            <h2 style="text-align:center; color:var(--primary); margin-bottom: 20px;" data-ar="تصنيع وتجهيز قاعات وصالونات بالجملة" data-fr="Fabrication en gros sur mesure">Fabrication en gros sur mesure</h2>
             <form id="custom-form" onsubmit="submitCustomOrder(event)">
                 <div class="form-group" style="margin-bottom:15px;">
                     <label style="display:block;margin-bottom:5px; font-weight: bold;" data-ar="صورة الموديل (اختياري)" data-fr="Image du modèle (optionnelle)">Image du modèle (optionnelle)</label>
                     <input type="file" class="form-control" id="custom-img" accept="image/*">
                 </div>
                 <div class="form-group" style="margin-bottom:15px;">
-                    <label style="display:block;margin-bottom:5px; font-weight: bold;" data-ar="وصف التصميم والأبعاد" data-fr="Description et dimensions">Description et dimensions</label>
-                    <textarea class="form-control" id="custom-desc" rows="3" required placeholder="Ex: Table en bois massif de 160x90cm avec 6 chaises en velours..."></textarea>
+                    <label style="display:block;margin-bottom:5px; font-weight: bold;" data-ar="وصف التصميم والكميات المطلوبة للجملة" data-fr="Description, dimensions et quantité minimale">Description, dimensions et quantité minimale</label>
+                    <textarea class="form-control" id="custom-desc" rows="3" required placeholder="مثال: مشروع تجهيز قاعة حفلات بـ 150 كرسي مخملي بلون كحلي و 20 طاولة دائرية..."></textarea>
                 </div>
                 <div class="form-row">
-                    <div class="form-group"><label style="display:block;margin-bottom:5px; font-weight: bold;" data-ar="الاسم" data-fr="Nom">Nom</label><input type="text" class="form-control" id="custom-name" required></div>
+                    <div class="form-group"><label style="display:block;margin-bottom:5px; font-weight: bold;" data-ar="اسم المؤسسة / التاجر" data-fr="Nom de l'établissement">Nom / Établissement</label><input type="text" class="form-control" id="custom-name" required></div>
                     <div class="form-group"><label style="display:block;margin-bottom:5px; font-weight: bold;" data-ar="الهاتف" data-fr="Téléphone">Téléphone</label><input type="tel" class="form-control" id="custom-phone" required></div>
                 </div>
                 <div class="form-group" style="margin-bottom:20px;">
                     <label style="display:block;margin-bottom:5px; font-weight: bold;" data-ar="الولاية" data-fr="Wilaya">Wilaya</label>
                     <select class="form-control" id="custom-wilaya" required></select>
                 </div>
-                <button type="submit" class="btn" id="custom-submit-btn" data-ar="تأكيد الطلب" data-fr="Confirmer">Confirmer</button>
+                <button type="submit" class="btn" id="custom-submit-btn" data-ar="تأكيد طلب عرض السعر" data-fr="Demander un devis">Demander un devis</button>
             </form>
         </div>
     </div>
@@ -753,9 +780,7 @@
         <div class="modal-content">
             <i class="fas fa-times close-modal" onclick="closeModal('favorites-modal')"></i>
             <h2 style="text-align:center; color:var(--primary); margin-bottom: 20px;" data-ar="المنتجات المفضلة" data-fr="Produits favoris">Produits favoris</h2>
-            <div id="favorites-list-container" style="display: flex; flex-direction: column; gap: 15px;">
-                <!-- تُعبأ برمجياً -->
-            </div>
+            <div id="favorites-list-container" style="display: flex; flex-direction: column; gap: 15px;"></div>
         </div>
     </div>
 
@@ -763,7 +788,7 @@
         <div class="modal-content" style="text-align: center; max-width: 300px;">
             <i class="fas fa-check-circle success-checkmark"></i>
             <h3 data-ar="تم إرسال طلبك بنجاح!" data-fr="Envoyé avec succès!">Envoyé avec succès!</h3>
-            <p style="margin-top: 10px; color: var(--text-muted);" data-ar="سنتصل بك قريباً لتأكيد طلبك." data-fr="Nous vous contacterons bientôt pour confirmer.">Nous vous contacterons bientôt.</p>
+            <p style="margin-top: 10px; color: var(--text-muted);" data-ar="سيتصل بكم قسم مبيعات الجملة قريباً لمراجعة وتأكيد طلبكم." data-fr="Notre service commercial de gros vous contactera très rapidement.">Notre service commercial vous contactera bientôt.</p>
         </div>
     </div>
 
@@ -772,10 +797,10 @@
     <div class="modal" id="about-modal"><div class="modal-content"><i class="fas fa-times close-modal" onclick="closeModal('about-modal')"></i><h2 data-ar="من نحن" data-fr="À propos">À propos</h2><p id="txt-about" style="margin-top:10px; white-space:pre-wrap;"></p></div></div>
     <div class="modal" id="contact-modal"><div class="modal-content"><i class="fas fa-times close-modal" onclick="closeModal('contact-modal')"></i><h2 data-ar="اتصل بنا" data-fr="Contact">Contact</h2><p id="txt-contact" style="margin-top:10px; white-space:pre-wrap;"></p></div></div>
 
-    <!-- لوحة تحكم الإدارة بالفرنسية كخيار افتراضي مع دعم العربية -->
+    <!-- لوحة التحكم بالإدارة -->
     <div id="admin-login-screen">
         <div class="login-box fade-in">
-            <h2 style="color:var(--primary); margin-bottom: 20px;">DASHBOARD | KOURCI</h2>
+            <h2 style="color:var(--primary); margin-bottom: 20px;">DASHBOARD | KOURCI GROS</h2>
             <div class="form-group" style="margin-bottom:15px;"><input type="text" id="admin-user" class="form-control" placeholder="Nom d'utilisateur"></div>
             <div class="form-group" style="margin-bottom:15px;"><input type="password" id="admin-pass" class="form-control" placeholder="Mot de passe"></div>
             <button class="btn" onclick="verifyAdmin()">Connexion</button>
@@ -785,11 +810,11 @@
 
     <div id="admin-panel">
         <div class="admin-sidebar" id="admin-sidebar">
-            <div class="admin-logo" id="admin-sidebar-logo"><i class="fas fa-chair"></i> Admin</div>
+            <div class="admin-logo" id="admin-sidebar-logo"><i class="fas fa-chair"></i> Admin Gros</div>
             <ul class="admin-nav">
                 <li class="active" onclick="switchAdminTab('tab-dash', this)" data-adm-ar="الداشبورد والإحصائيات" data-adm-fr="Tableau de bord & Stats"><i class="fas fa-tachometer-alt"></i> Tableau de bord & Stats</li>
-                <li onclick="window.currentOrderFilter='all'; switchAdminTab('tab-orders', this); if(window.renderAdminOrders) window.renderAdminOrders();" data-adm-ar="الطلبيات العادية" data-adm-fr="Commandes Standards"><i class="fas fa-shopping-cart"></i> Commandes Standards</li>
-                <li onclick="switchAdminTab('tab-custom', this)" data-adm-ar="طلبات التفصيل" data-adm-fr="Commandes sur mesure"><i class="fas fa-hammer"></i> Commandes sur mesure</li>
+                <li onclick="window.currentOrderFilter='all'; switchAdminTab('tab-orders', this); if(window.renderAdminOrders) window.renderAdminOrders();" data-adm-ar="طلبات الجملة" data-adm-fr="Commandes Standards"><i class="fas fa-shopping-cart"></i> Commandes Standards</li>
+                <li onclick="switchAdminTab('tab-custom', this)" data-adm-ar="طلبات المشاريع والتفصيل" data-adm-fr="Commandes sur mesure"><i class="fas fa-hammer"></i> Commandes sur mesure</li>
                 <li onclick="switchAdminTab('tab-products', this)" data-adm-ar="إدارة الكراسي والطاولات" data-adm-fr="Gestion des Produits"><i class="fas fa-chair"></i> Gestion des Produits</li>
                 <li onclick="switchAdminTab('tab-categories', this)" data-adm-ar="إدارة الفئات" data-adm-fr="Gestion des Catégories"><i class="fas fa-tags"></i> Gestion des Catégories</li>
                 <li onclick="switchAdminTab('tab-banners', this)" data-adm-ar="البانرات" data-adm-fr="Bannières & Couleurs"><i class="fas fa-images"></i> Bannières & Couleurs</li>
@@ -840,7 +865,7 @@
 
             <div id="tab-orders" class="tab-section">
                 <div style="display:flex; justify-content:space-between; margin-bottom:15px; align-items:center;">
-                    <h3 data-adm-ar="إدارة الطلبيات" data-adm-fr="Gestion des Commandes">Gestion des Commandes</h3>
+                    <h3 data-adm-ar="إدارة طلبيات الجملة" data-adm-fr="Gestion des Commandes de Gros">Gestion des Commandes de Gros</h3>
                     <button class="btn" style="width:180px; padding:8px; background:#27ae60;" onclick="exportSelectedOrders()"><i class="fas fa-file-excel"></i> <span data-adm-ar="تصدير" data-adm-fr="Exporter (CSV)">Exporter (CSV)</span></button>
                 </div>
                 <div class="admin-table-wrap" style="margin-top:15px;">
@@ -871,8 +896,8 @@
 
             <div id="tab-products" class="tab-section">
                 <div style="display:flex; justify-content:space-between; margin-bottom:15px;">
-                    <h3 data-adm-ar="المنتجات المعروضة" data-adm-fr="Produits Affichés">Produits Affichés</h3>
-                    <button class="btn" style="width:180px; padding:8px;" onclick="openProductModal()" data-adm-ar="إضافة قطعة +" data-adm-fr="Ajouter Produit +">Ajouter Produit +</button>
+                    <h3 data-adm-ar="المنتجات المعروضة بالجملة" data-adm-fr="Produits de Gros Affichés">Produits de Gros Affichés</h3>
+                    <button class="btn" style="width:180px; padding:8px;" onclick="openProductModal()" data-adm-ar="إضافة قطعة للجملة +" data-adm-fr="Ajouter Produit +">Ajouter Produit +</button>
                 </div>
                 <div class="products-grid" id="admin-products-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px,1fr));"></div>
             </div>
@@ -920,7 +945,7 @@
                 <div class="invoice-box" id="print-area">
                     <div class="invoice-header">
                         <div>
-                            <h1 style="color:var(--primary); font-size:28px; margin-bottom:5px;">KOURCI</h1>
+                            <h1 style="color:var(--primary); font-size:28px; margin-bottom:5px;">KOURCI GROS</h1>
                             <p>Tigzirt, Showroom</p>
                             <p>Tél: +213 550 00 00 00</p>
                         </div>
@@ -1002,6 +1027,88 @@
         </div>
     </div>
 
+    <!-- نافذة إضافة وتعديل المنتجات بالإدارة -->
+    <div class="modal" id="add-product-modal">
+        <div class="modal-content">
+            <i class="fas fa-times close-modal" onclick="closeModal('add-product-modal')"></i>
+            <h2 id="prod-modal-title" style="text-align:center; color:var(--primary); margin-bottom: 20px;">Produit Gros</h2>
+            <form id="prod-form" onsubmit="event.preventDefault(); saveProduct();">
+                <input type="hidden" id="prod-id">
+                <div class="form-row">
+                    <div><label>Nom (Arabe)</label><input type="text" id="prod-name-ar" class="form-control" required></div>
+                    <div><label>Nom (Français)</label><input type="text" id="prod-name-fr" class="form-control" required></div>
+                </div>
+                <div class="form-row">
+                    <div><label>Prix de gros Unitaire (DA)</label><input type="number" id="prod-price" class="form-control" required></div>
+                    <div><label>Ancien Prix Unitaire (DA)</label><input type="number" id="prod-old-price" class="form-control"></div>
+                </div>
+                <div class="form-row">
+                    <div><label>Catégorie</label>
+                        <select id="prod-category" class="form-control">
+                            <option value="كراسي">Chaises (كراسي)</option>
+                            <option value="طاولات">Tables (طاولات)</option>
+                        </select>
+                    </div>
+                    <div><label>الحد الأدنى للطلب (MOQ)</label><input type="number" id="prod-moq" class="form-control" value="10" min="1" required></div>
+                </div>
+                <div class="form-row">
+                    <div><label>Dimensions</label><input type="text" id="prod-sizes" class="form-control" placeholder="e.g. 140x80x75"></div>
+                    <div><label>Couleurs</label><input type="text" id="prod-colors" class="form-control" placeholder="e.g. Noir, Gris"></div>
+                </div>
+                <div class="form-row">
+                    <div><label>Stock</label><input type="number" id="prod-stock" class="form-control" value="100"></div>
+                    <div><label>Images</label><input type="file" id="prod-img" class="form-control" multiple accept="image/*"></div>
+                </div>
+                <div class="form-group" style="margin-bottom:15px;">
+                    <label>Description</label>
+                    <textarea id="prod-desc" class="form-control" rows="3"></textarea>
+                </div>
+                <div class="form-group" style="margin-bottom:15px; display:flex; align-items:center; gap:10px;">
+                    <input type="checkbox" id="prod-featured"> <label for="prod-featured">Mettre en avant (Featured)</label>
+                </div>
+                <button type="submit" class="btn">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة فئة جديدة -->
+    <div class="modal" id="add-category-modal">
+        <div class="modal-content">
+            <i class="fas fa-times close-modal" onclick="closeModal('add-category-modal')"></i>
+            <h2 style="text-align:center; color:var(--primary); margin-bottom: 20px;">Ajouter une Catégorie</h2>
+            <form onsubmit="event.preventDefault(); saveCategory();">
+                <div class="form-group" style="margin-bottom:15px;"><label>Nom (Arabe)</label><input type="text" id="cat-name-ar" class="form-control" required></div>
+                <div class="form-group" style="margin-bottom:15px;"><label>Nom (Français)</label><input type="text" id="cat-name-fr" class="form-control" required></div>
+                <div class="form-group" style="margin-bottom:15px;"><label>Image</label><input type="file" id="cat-img" class="form-control" accept="image/*" required></div>
+                <button type="submit" class="btn">Enregistrer</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة طباعة ملصق الشحن -->
+    <div class="modal" id="print-label-modal">
+        <div class="modal-content" style="max-width: 400px; text-align: left;">
+            <i class="fas fa-times close-modal" onclick="closeModal('print-label-modal')"></i>
+            <h2 style="text-align:center; color:var(--primary); margin-bottom: 15px;">Étiquette d'expédition</h2>
+            <div id="print-label-area" style="border: 2px dashed #333; padding: 15px; background: white; color: black; font-family: monospace;">
+                <div style="text-align:center; border-bottom:1px solid #333; padding-bottom:10px; margin-bottom:10px;">
+                    <h3 style="margin:0;">KOURCI GROS</h3>
+                    <p style="margin:2px 0; font-size:11px;">Tigzirt, Algérie</p>
+                </div>
+                <p><strong>Commande:</strong> <span id="lbl-id"></span></p>
+                <p><strong>Client:</strong> <span id="lbl-name"></span></p>
+                <p><strong>Tél:</strong> <span id="lbl-phone"></span></p>
+                <p><strong>Destination:</strong> <span id="lbl-wilaya"></span> - <span id="lbl-address"></span></p>
+                <p style="border-top:1px dashed #333; padding-top:5px;"><strong>Produit(s):</strong> <span id="lbl-prodName"></span></p>
+                <p><strong>Prix Unit:</strong> <span id="lbl-prodPrice"></span> DA</p>
+                <p><strong>Livraison:</strong> <span id="lbl-shipPrice"></span> DA</p>
+                <p style="font-size:16px; border-top:1px solid #333; padding-top:5px;"><strong>TOTAL COMPLET:</strong> <span id="lbl-total"></span> DA</p>
+                <div id="qrcode" style="display:flex; justify-content:center; margin-top:15px;"></div>
+            </div>
+            <button class="btn" onclick="printLabel()" style="margin-top:15px;"><i class="fas fa-print"></i> Imprimer l'étiquette</button>
+        </div>
+    </div>
+
 
     <script>
         // Security logic for Admin Check (Obfuscated hex mapping for abobob123#)
@@ -1013,36 +1120,48 @@
             return encrypted === "c5c6d3c6d3c695969787";
         }
 
+        // إدراج المنتجات الستة المطلوبة مباشرة مع أسعار وتفاصيل جملة احترافية
+        const requestedProducts = [
+            { id: 'p_g1', name_ar: 'كرسي حديدي عصري للحدائق والمقاهي', name_fr: 'Chaise de Jardin Moderne', price: 4200, oldPrice: 5800, category: 'كراسي', img: 'https://m.media-amazon.com/images/I/61kvcv7DnaL._AC_UF894,1000_QL80_FMwebp_.jpg', images: ['https://m.media-amazon.com/images/I/61kvcv7DnaL._AC_UF894,1000_QL80_FMwebp_.jpg'], sizes: '45x45x85', colors: 'Gris, Noir', stock: 450, featured: true, rating: 4.8, desc: "كرسي حديدي فاخر فائق المتانة مخصص للفنادق والمقاهي والحدائق الخارجية. معالج ضد الصدأ والعوامل الجوية.", moq: 20 },
+            { id: 'p_g2', name_ar: 'كرسي مكتب طبي مريح ومبطن', name_fr: 'Chaise de Bureau Médicale', price: 9500, oldPrice: 12500, category: 'كراسي', img: 'https://m.media-amazon.com/images/I/71ZC+USgsvL._AC_UF894,1000_QL80_FMwebp_.jpg', images: ['https://m.media-amazon.com/images/I/71ZC+USgsvL._AC_UF894,1000_QL80_FMwebp_.jpg'], sizes: 'Unique', colors: 'Noir, Gris', stock: 150, featured: true, rating: 4.9, desc: "كرسي مكتبي مريح ذو تصميم هندسي يدعم الظهر والفقرات ومزود بمساند مريحة ومتحركة.", moq: 10 },
+            { id: 'p_g3', name_ar: 'كرسي خشب بتصميم اسكندنافي أنيق', name_fr: 'Chaise Scandinave Design', price: 3800, oldPrice: 4800, category: 'كراسي', img: 'https://m.media-amazon.com/images/I/81HSPK9IQsL._AC_UF894,1000_QL80_FMwebp_.jpg', images: ['https://m.media-amazon.com/images/I/81HSPK9IQsL._AC_UF894,1000_QL80_FMwebp_.jpg'], sizes: '46x42x82', colors: 'Blanc, Noir, Gris', stock: 800, featured: true, rating: 4.7, desc: "كرسي بتصميم اسكندنافي راقي يجمع بين الأناقة والمتانة مع أرجل مصنوعة من خشب الزان الطبيعي الصلب.", moq: 30 },
+            { id: 'p_g4', name_ar: 'كرسي قماشي لصالونات ومطاعم الطعام', name_fr: 'Chaise de Table Élégante', price: 5100, oldPrice: 6500, category: 'كراسي', img: 'https://m.media-amazon.com/images/I/71dT7YauwnL._AC_UF894,1000_QL80_FMwebp_.jpg', images: ['https://m.media-amazon.com/images/I/71dT7YauwnL._AC_UF894,1000_QL80_FMwebp_.jpg'], sizes: '48x45x92', colors: 'Beige, Gris', stock: 300, featured: false, rating: 4.6, desc: "كرسي قماش مخملي مريح لغرف الطعام والمطاعم الفاخرة مزود بحشو عالي الكثافة وهيكل حديدي قوي.", moq: 24 },
+            { id: 'p_g5', name_ar: 'كرسي بار مرتفع بتصميم صناعي عتيق', name_fr: 'Tabouret de Bar Vintage', price: 6300, oldPrice: 8200, category: 'كراسي', img: 'https://m.media-amazon.com/images/I/71dsXf1qS5L._AC_UF894,1000_QL80_FMwebp_.jpg', images: ['https://m.media-amazon.com/images/I/71dsXf1qS5L._AC_UF894,1000_QL80_FMwebp_.jpg'], sizes: '75cm', colors: 'Marron, Noir', stock: 220, featured: false, rating: 4.8, desc: "كرسي بار مرتفع عالي الجودة بتصميم ريترو عتيق مع مقعد جلدي ناعم وهيكل حديدي متين.", moq: 12 },
+            { id: 'p_g6', name_ar: 'كرسي حدائق حديدي فاخر بلون أزرق مخضر', name_fr: 'Chaise Jardin Acier Bleuté', price: 4800, oldPrice: 6200, category: 'كراسي', img: 'https://medias.maisonsdumonde.com/images/ar_1:1,c_pad,f_auto,q_auto,w_425/v1/mkp/M25042363_1/juego-de-2-sillas-de-jardin-acero-azul-verdoso.jpg', images: ['https://medias.maisonsdumonde.com/images/ar_1:1,c_pad,f_auto,q_auto,w_425/v1/mkp/M25042363_1/juego-de-2-sillas-de-jardin-acero-azul-verdoso.jpg'], sizes: '40x40x80', colors: 'Bleu-Vert', stock: 260, featured: false, rating: 4.7, desc: "كرسي خارجي أنيق قابل للطي ومقاوم للرطوبة والشمس، ممتاز للمنازل والساحات الخارجية للمطاعم.", moq: 16 }
+        ];
+
         // Local Storage State Management
         window.siteState = {
             lang: 'fr', 
             favorites: [],
-            products: [
-                { id: '1', name_ar: 'كرسي مودرن فاخر', name_fr: 'Chaise Moderne Luxe', price: 6500, oldPrice: 8500, category: 'كراسي', img: 'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600', images: ['https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600'], sizes: '45x45x90', colors: 'Beige, Gris, Marron', stock: 15, featured: true, rating: 4.7, desc: "Chaise confortable au design contemporain, rembourrée de mousse haute densité avec pieds solides." },
-                { id: '2', name_ar: 'طاولة طعام خشب', name_fr: 'Table à manger en bois', price: 22900, oldPrice: 28000, category: 'طاولات', img: 'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600', images: ['https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600'], sizes: '140x80x75, 180x90x75', colors: 'Naturel, Chêne Foncé', stock: 6, featured: true, rating: 4.8, desc: "Table à manger chaleureuse en bois massif d'excellent quality, robuste et résistante." },
-                { id: '3', name_ar: 'كرسي مريح', name_fr: 'Chaise Confortable', price: 8900, category: 'كراسي', img: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?w=600', images: ['https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?w=600'], sizes: 'Unique', colors: 'Noir, Gris', stock: 12, featured: false, rating: 4.6, desc: "Chaise ergonomique idéale pour de longues heures d'assise, confortable et élégante." },
-                { id: '4', name_ar: 'طاولة خشب كلاسيك', name_fr: 'Table en bois classique', price: 18500, category: 'طاولات', img: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=200', images: ['https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=200'], sizes: '120x80x75', colors: 'Chêne Classique', stock: 5, featured: false, rating: 4.7, desc: "Table classique idéale pour les petits espaces, fabriquée pour durer dans le temps." }
-            ],
+            products: requestedProducts,
             banners: [
-                { id:'b1', img:'https://images.unsplash.com/photo-1503602642458-232111445657?w=1000', title_ar: 'خطوة تغيير ديكور بيتك تبدأ هنا', title_fr: 'Le premier pas vers la transformation de votre maison commence ici', desc_ar: 'طاولات وكراسي بجودة عالية وتصاميم عصرية تناسب ذوقك', desc_fr: 'Des tables et des chaises de haute qualité et au design moderne' },
-                { id:'b2', img:'https://images.unsplash.com/photo-1581428982868-e410dd047a90?w=1000', title_ar: 'أثاث فاخر يعكس رقي اختياراتك', title_fr: 'Des meubles de luxe qui reflètent votre élégance', desc_ar: 'صنع خصيصاً لراحة تدوم طويلاً وشكل مذهل', desc_fr: 'Conçus pour un confort durable et un look exceptionnel' }
+                { id:'b1', img:'https://images.unsplash.com/photo-1503602642458-232111445657?w=1000', title_ar: 'أثاث فنادق ومقاهي ومحلات بالجملة', title_fr: 'Mobilier de Cafés et Hôtels en Gros', desc_ar: 'طاولات وكراسي بجودة تصنيع عالية وتصاميم عصرية تناسب المشاريع الكبرى', desc_fr: 'Des tables et des chaises de haute qualité pour les professionnels' },
+                { id:'b2', img:'https://images.unsplash.com/photo-1581428982868-e410dd047a90?w=1000', title_ar: 'أثاث فاخر بأقوى الأسعار التنافسية', title_fr: 'Meubles robustes à tarifs dégressifs', desc_ar: 'صنع خصيصاً للموزعين بأسعار وعروض جملة حصرية ومتميزة', desc_fr: 'Conçus pour un confort durable et un look exceptionnel' }
             ],
             orders: [], customOrders: [], accounting: [],
             categories: [
-                {id:'c1', name_ar:'كراسي', name_fr:'Chaises', sub_ar:'تشكيلة متنوعة', sub_fr:'Collection variée', img:'https://images.unsplash.com/photo-1503602642458-232111445657?w=600'},
-                {id:'c2', name_ar:'طاولات', name_fr:'Tables', sub_ar:'تصاميم عصرية', sub_fr:'Designs modernes', img:'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600'}
+                {id:'c1', name_ar:'كراسي', name_fr:'Chaises', sub_ar:'تشكيلة متنوعة بالجملة', sub_fr:'Collection de gros variée', img:'https://images.unsplash.com/photo-1503602642458-232111445657?w=600'},
+                {id:'c2', name_ar:'طاولات', name_fr:'Tables', sub_ar:'تصاميم ومقاسات للمشاريع', sub_fr:'Designs robustes pour projets', img:'https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?w=600'}
             ],
             wilayas: [
                 {id: 16, name_ar: 'الجزائر', name_fr: 'Alger', price_desk: 400, price_home: 800},
                 {id: 15, name_ar: 'تيزي وزو', name_fr: 'Tizi Ouzou', price_desk: 300, price_home: 600},
                 {id: 9, name_ar: 'البليدة', name_fr: 'Blida', price_desk: 500, price_home: 1000}
             ],
-            settings: { whatsapp: "213550000000", about_ar: "معرض كرسي (Kourci) للطاولات والكراسي الرائعة في مدينة تيغزيرت الساحلية.", about_fr: "Showroom Kourci - Tables & Chaises à Tigzirt.", priv_ar:"سياسة الخصوصية الخاصة بمتجر كرسي", priv_fr:"Confidentialité Kourci", ship_ar:"سياسة التوصيل السريع لجميع الولايات والبلديات.", ship_fr:"Politique de livraison Kourci", theme: "#c08246", map:"https://maps.google.com/maps?q=Tigzirt,%20Algeria&t=&z=13&ie=UTF8&iwloc=&output=embed", logo:"", head:"", top_ad:"", pop_ad:"" }
+            settings: { whatsapp: "213550000000", about_ar: "معرض كرسي (Kourci) لبيع أرقى الطاولات والكراسي بالجملة وتجهيز الفنادق والمقاهي والمحلات في مدينة تيغزيرت الساحلية لجميع الموزعين عبر الوطن.", about_fr: "Showroom Kourci - Vente en gros de tables & chaises. Fournisseur officiel pour hôtels, restaurants, cafés et revendeurs à Tigzirt.", priv_ar:"سياسة خصوصية البيع بالجملة لموقع كرسي", priv_fr:"Confidentialité de Vente en Gros Kourci", ship_ar:"سياسة الشحن مخصصة لطلبات الجملة والشحن المباشر للموزعين لكافة الولايات والبلديات.", ship_fr:"Politique de livraison adaptée aux volumes de gros et logistique vers toutes les wilayas.", theme: "#c08246", map:"https://maps.google.com/maps?q=Tigzirt,%20Algeria&t=&z=13&ie=UTF8&iwloc=&output=embed", logo:"", head:"", top_ad:"", pop_ad:"" }
         };
 
         // Safe Load Database locally
         function saveLocalDB() { localStorage.setItem('mobiliaDB', JSON.stringify(window.siteState)); }
         function loadLocalDB() {
+            // فرض تحديث المنتجات الجديدة والبانر وحذف القديمة لمرة واحدة وبسرعة
+            if (!localStorage.getItem('kourci_gros_seeded')) {
+                window.siteState.products = requestedProducts;
+                localStorage.setItem('kourci_gros_seeded', 'true');
+                saveLocalDB();
+            }
+
             const db = localStorage.getItem('mobiliaDB');
             if(db) {
                 try {
@@ -1051,7 +1170,10 @@
                         ...window.siteState,
                         ...parsed,
                         favorites: parsed.favorites || [],
-                        products: parsed.products || window.siteState.products,
+                        products: (parsed.products || window.siteState.products).map((p, idx) => {
+                            const defaultMoq = window.siteState.products[idx] ? window.siteState.products[idx].moq : 10;
+                            return { ...p, moq: p.moq || defaultMoq };
+                        }),
                         banners: parsed.banners || window.siteState.banners,
                         orders: parsed.orders || [],
                         customOrders: parsed.customOrders || [],
@@ -1268,7 +1390,7 @@
                     <div class="slide-content">
                         <h1>${isAr ? b.title_ar : b.title_fr}</h1>
                         <p>${isAr ? b.desc_ar : b.desc_fr}</p>
-                        <button class="slide-btn">${isAr ? 'تسوق الآن' : 'Découvrir'} <i class="fas fa-arrow-right"></i></button>
+                        <button class="slide-btn">${isAr ? 'تسوق بالجملة' : 'Découvrir Gros'} <i class="fas fa-arrow-right"></i></button>
                     </div>
                 </div>
             `).join('') + `<div class="slider-dots" id="slider-dots"></div>`;
@@ -1322,7 +1444,11 @@
                     <div class="product-info">
                         <div class="product-title" onclick="window.location.hash='#product-${p.id}'">${isAr ? (p.name_ar||'') : (p.name_fr||'')}</div>
                         <div class="rating-box"><i class="fas fa-star"></i> ${p.rating || '4.5'}</div>
-                        <div class="product-card-footer">
+                        <!-- إبراز الحد الأدنى للطلب بوضوح -->
+                        <div class="prod-moq-label" style="font-size:12px; color:var(--danger); font-weight:bold; margin-top:4px;">
+                            <i class="fas fa-boxes"></i> ${isAr ? `أقل كمية: ${p.moq || 10} قطع` : `Min. commande: ${p.moq || 10} pcs`}
+                        </div>
+                        <div class="product-card-footer" style="margin-top: 10px;">
                             <div class="product-price-wrapper">
                                 ${p.oldPrice ? `<span class="old-price">${p.oldPrice.toLocaleString()} ${currency}</span>` : ''} 
                                 <span class="product-price">${p.price.toLocaleString()} ${currency}</span>
@@ -1407,6 +1533,7 @@
             const isAr = window.siteState.lang === 'ar';
             const name = isAr ? p.name_ar : p.name_fr;
             const currency = isAr ? 'دج' : 'DA';
+            let minQty = p.moq || 10;
             let wilayasOpts = `<option value="">-- ${isAr?'اختر الولاية':'Choisir Wilaya'} --</option>` + window.siteState.wilayas.map(w => `<option value="${w.id}" data-desk="${w.price_desk}" data-home="${w.price_home}">${w.id} - ${isAr?w.name_ar:w.name_fr}</option>`).join('');
             
             let sizesHtml = p.sizes ? `<div class="pro-form-group"><label>${isAr?'الأبعاد المتوفرة (سم):':'Dimensions:'}</label><div class="variant-selector">${p.sizes.split(',').map((s,i)=>`<label class="variant-label"><input type="radio" name="chk-size" value="${s.trim()}" ${i===0?'checked':''}><div class="variant-box">${s.trim()}</div></label>`).join('')}</div></div>` : '';
@@ -1430,21 +1557,34 @@
                     <div style="display:flex; align-items:center; gap:10px; margin-bottom:15px;">
                         <span style="font-size:26px; font-weight:800; color:var(--primary);">${p.price.toLocaleString()} ${currency}</span>
                         ${p.oldPrice ? `<span class="old-price" style="font-size:16px;">${p.oldPrice.toLocaleString()} ${currency}</span>` : ''}
+                        <span style="font-size:12px; background:var(--primary); color:white; padding:4px 8px; border-radius:4px; font-weight:bold;">${isAr?'سعر الجملة للقطعة':'Prix de Gros / Unit'}</span>
                     </div>
                     <p style="color:var(--text-muted); line-height:1.7; margin-bottom:25px; font-size: 15px;">${p.desc||''}</p>
                     
                     <div class="order-form">
-                        <h2 style="margin-bottom:25px; color:var(--text-main); text-align:center; font-weight:800; font-size: 20px;">${isAr?'استمارة طلب مريحة':'Formulaire de commande'}</h2>
+                        <h2 style="margin-bottom:25px; color:var(--text-main); text-align:center; font-weight:800; font-size: 20px;">${isAr?'استمارة طلب جملة مريحة':'Formulaire de commande de Gros'}</h2>
                         ${sizesHtml} ${colorsHtml}
                         
+                        <!-- إدخال حقل تعديل كمية الجملة مع التحقق من الـ MOQ -->
+                        <div class="pro-form-group">
+                            <label style="color:var(--text-main);">${isAr ? 'الكمية المطلوبة (بالجملة)' : 'Quantité de Gros'}</label>
+                            <div class="input-icon-wrap">
+                                <input type="number" id="chk-qty" class="pro-input" value="${minQty}" min="${minQty}" oninput="calcCheckoutTotal(${p.price}, ${minQty})" required style="font-weight: bold; font-size:16px;">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <small style="color:var(--danger); font-weight:bold; display:block; margin-top:4px;">
+                                ${isAr ? `* الحد الأدنى لطلب هذا المنتج بالجملة هو ${minQty} قطع` : `* Le minimum de commande est de ${minQty} pièces`}
+                            </small>
+                        </div>
+
                         <div class="pro-grid-2">
-                            <div class="pro-form-group"><label>${isAr?'الاسم الكامل':'Nom complet'}</label><div class="input-icon-wrap"><input type="text" id="chk-name" class="pro-input" placeholder="..." required><i class="fas fa-user"></i></div></div>
+                            <div class="pro-form-group"><label>${isAr?'اسم المشتري / المؤسسة':'Nom de l\'établissement'}</label><div class="input-icon-wrap"><input type="text" id="chk-name" class="pro-input" placeholder="..." required><i class="fas fa-user"></i></div></div>
                             <div class="pro-form-group"><label>${isAr?'رقم الهاتف':'Téléphone'}</label><div class="input-icon-wrap"><input type="tel" id="chk-phone" class="pro-input" placeholder="05..." required><i class="fas fa-phone"></i></div></div>
                         </div>
 
                         <div class="pro-form-group">
                             <label>${isAr?'الولاية':'Wilaya'}</label>
-                            <select id="chk-wilaya" class="pro-input" onchange="calcCheckoutTotal(${p.price})" required>${wilayasOpts}</select>
+                            <select id="chk-wilaya" class="pro-input" onchange="calcCheckoutTotal(${p.price}, ${minQty})" required>${wilayasOpts}</select>
                         </div>
                         <div class="pro-form-group">
                             <label>${isAr?'العنوان التفصيلي':'Adresse'}</label>
@@ -1455,30 +1595,50 @@
                         </div>
                         <div class="pro-form-group">
                             <label>${isAr?'نوع التوصيل':'Type de livraison'}</label>
-                            <select id="chk-delivery" class="pro-input" onchange="calcCheckoutTotal(${p.price})">
+                            <select id="chk-delivery" class="pro-input" onchange="calcCheckoutTotal(${p.price}, ${minQty})">
                                 <option value="desk">${isAr?'إلى مكتب التوصيل (نقطة استلام)':'Point de relais'}</option>
                                 <option value="home">${isAr?'توصيل منزلي':'À domicile'}</option>
                             </select>
                         </div>
                         
                         <div style="background:var(--bg-card); padding:20px; border-radius:16px; margin-bottom:20px; font-size:16px; color:var(--text-main); border:1px solid var(--border-color); box-shadow:var(--shadow);">
-                            <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span>${isAr?'سعر المنتج':'Prix du produit'}:</span> <strong>${p.price.toLocaleString()} ${currency}</strong></div>
-                            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:8px; margin-bottom:8px;"><span>${isAr?'تكلفة التوصيل':'Livraison'}:</span> <strong><span id="chk-shipping-price">0</span> ${currency}</strong></div>
-                            <div style="display:flex; justify-content:space-between; font-size:22px; color:var(--primary); font-weight:800; margin-top:10px;"><span>${isAr?'الإجمالي':'Total'}:</span> <span><span id="chk-total-price">${p.price.toLocaleString()}</span> ${currency}</span></div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:8px;"><span>${isAr?'الإجمالي الفرعي':'Sous-total'}:</span> <strong id="chk-subtotal-price">${(p.price * minQty).toLocaleString()} ${currency}</strong></div>
+                            <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border-color); padding-bottom:8px; margin-bottom:8px;"><span>${isAr?'شحن كميات الجملة':'Frais logistique'}:</span> <strong><span id="chk-shipping-price">0</span> ${currency}</strong></div>
+                            <div style="display:flex; justify-content:space-between; font-size:22px; color:var(--primary); font-weight:800; margin-top:10px;"><span>${isAr?'الإجمالي الكلي':'Total'}:</span> <span><span id="chk-total-price">${(p.price * minQty).toLocaleString()}</span> ${currency}</span></div>
                         </div>
-                        <button class="btn btn-pulse-submit" onclick="submitProductOrder('${p.id}')"><i class="fas fa-shopping-cart" style="margin-left:8px;"></i> ${isAr?'تأكيد طلب الشراء':'Confirmer la commande'}</button>
+                        <button class="btn btn-pulse-submit" onclick="submitProductOrder('${p.id}')"><i class="fas fa-shopping-cart" style="margin-left:8px;"></i> ${isAr?'تأكيد طلب الشراء بالجملة':'Confirmer la commande'}</button>
                     </div>
                 </div>`;
         }
 
-        window.calcCheckoutTotal = (prodPrice) => {
+        // حساب أسعار وعمولات شحن كميات الجملة
+        window.calcCheckoutTotal = (prodPrice, moq) => {
             const wSelect = document.getElementById('chk-wilaya');
-            if(!wSelect.value) return;
+            const qtyInput = document.getElementById('chk-qty');
+            let qty = qtyInput ? parseInt(qtyInput.value) || 0 : moq;
+            
+            if(qty < moq) {
+                qtyInput.style.borderColor = 'var(--danger)';
+            } else {
+                qtyInput.style.borderColor = '#ccd1d9';
+            }
+
             const isAr = window.siteState.lang === 'ar';
             const currency = isAr ? 'دج' : 'DA';
-            let shipPrice = document.getElementById('chk-delivery').value === 'desk' ? parseInt(wSelect.options[wSelect.selectedIndex].getAttribute('data-desk')) : parseInt(wSelect.options[wSelect.selectedIndex].getAttribute('data-home'));
+            
+            let shipPrice = 0;
+            if (wSelect && wSelect.value) {
+                shipPrice = document.getElementById('chk-delivery').value === 'desk' 
+                    ? parseInt(wSelect.options[wSelect.selectedIndex].getAttribute('data-desk')) 
+                    : parseInt(wSelect.options[wSelect.selectedIndex].getAttribute('data-home'));
+            }
+            
+            let subtotal = prodPrice * qty;
+            if(document.getElementById('chk-subtotal-price')) {
+                document.getElementById('chk-subtotal-price').innerText = subtotal.toLocaleString() + ' ' + currency;
+            }
             document.getElementById('chk-shipping-price').innerText = shipPrice ? shipPrice.toLocaleString() : 0;
-            document.getElementById('chk-total-price').innerText = (prodPrice + (shipPrice || 0)).toLocaleString();
+            document.getElementById('chk-total-price').innerText = (subtotal + (shipPrice || 0)).toLocaleString();
         };
 
         window.submitProductOrder = async (prodId) => {
@@ -1493,13 +1653,23 @@
             const size = sizeEl ? sizeEl.value : '';
             const color = colorEl ? colorEl.value : '';
             
+            const qtyEl = document.getElementById('chk-qty');
+            const qty = qtyEl ? parseInt(qtyEl.value) || 0 : 0;
+            const moq = p.moq || 10;
+            
             if(!name || !phone || !wilaya.value || !address) return alert(window.siteState.lang==='ar'?"يرجى ملء جميع الحقول":"Veuillez remplir tous les champs");
+            
+            if(qty < moq) {
+                return alert(window.siteState.lang==='ar' ? `الكمية المطلوبة يجب أن لا تقل عن الحد الأدنى للطلب وهو ${moq} قطعة` : `La quantité ne peut pas être inférieure au minimum de commande de ${moq} pièces.`);
+            }
 
             const shipPrice = document.getElementById('chk-shipping-price').innerText.replace(/\D/g, '');
             const total = document.getElementById('chk-total-price').innerText.replace(/\D/g, '');
-            const prodNameFull = `${p.name_ar} ${size?`(${size})`:''} ${color?`[${color}]`:''}`;
+            
+            const isAr = window.siteState.lang === 'ar';
+            const prodNameFull = `${qty}x ${isAr ? p.name_ar : p.name_fr} ${size?`(${size})`:''} ${color?`[${color}]`:''}`;
 
-            const order = { id: 'O-'+Date.now().toString().slice(-6), type: 'product', prodName: prodNameFull, customer: name, phone: phone, wilaya: wilaya.options[wilaya.selectedIndex].text, address: address, total: total, prodPrice: p.price, shipPrice: shipPrice, status: 'pending', date: new Date().toISOString() };
+            const order = { id: 'O-'+Date.now().toString().slice(-6), type: 'product', prodName: prodNameFull, qty: qty, customer: name, phone: phone, wilaya: wilaya.options[wilaya.selectedIndex].text, address: address, total: total, prodPrice: p.price, shipPrice: shipPrice, status: 'pending', date: new Date().toISOString() };
             window.siteState.orders.push(order);
             saveLocalDB();
             
@@ -1533,7 +1703,7 @@
             window.siteState.customOrders.push(order);
             saveLocalDB();
             
-            btn.innerHTML = window.siteState.lang==='ar'?'تأكيد الطلب':'Confirmer'; btn.disabled = false;
+            btn.innerHTML = window.siteState.lang==='ar'?'تأكيد الطلب':'Demander un devis'; btn.disabled = false;
             closeModal('custom-modal'); openModal('success-modal');
             setTimeout(() => { closeModal('success-modal'); }, 2000);
         };
@@ -1668,7 +1838,7 @@
                 return `
                 <div class="product-card">
                     <img src="${thumbImg}" class="product-img">
-                    <div class="product-info"><strong>${p.name_fr}</strong><p>${p.price} DA | Stock: ${p.stock}</p>
+                    <div class="product-info"><strong>${p.name_fr}</strong><p>${p.price} DA | MOQ: ${p.moq || 10} | Stock: ${p.stock}</p>
                     <div style="display:flex; gap:5px; margin-top:5px;">
                         <button class="btn" style="background:var(--secondary); padding:5px;" onclick="window.editProduct('${p.id}')">Modifier</button>
                         <button class="btn" style="background:var(--danger); padding:5px;" onclick="window.deleteProductItem('${p.id}')">Supprimer</button>
@@ -1680,7 +1850,8 @@
         window.openProductModal = () => {
             document.getElementById('prod-id').value = '';
             document.querySelectorAll('#add-product-modal input, #add-product-modal textarea').forEach(el=>el.value='');
-            document.getElementById('prod-stock').value = '5';
+            document.getElementById('prod-stock').value = '100';
+            document.getElementById('prod-moq').value = '10';
             document.getElementById('prod-featured').checked = false;
             openModal('add-product-modal');
         };
@@ -1693,6 +1864,7 @@
             document.getElementById('prod-category').value = p.category||'اخرى';
             document.getElementById('prod-sizes').value = p.sizes||''; document.getElementById('prod-colors').value = p.colors||'';
             document.getElementById('prod-stock').value = p.stock||'0'; document.getElementById('prod-desc').value = p.desc||'';
+            document.getElementById('prod-moq').value = p.moq||'10';
             document.getElementById('prod-featured').checked = p.featured||false;
             openModal('add-product-modal');
         };
@@ -1707,7 +1879,8 @@
                 name_ar: document.getElementById('prod-name-ar').value, name_fr: document.getElementById('prod-name-fr').value,
                 price: parseInt(document.getElementById('prod-price').value||0), oldPrice: document.getElementById('prod-old-price').value,
                 category: document.getElementById('prod-category').value, sizes: document.getElementById('prod-sizes').value, colors: document.getElementById('prod-colors').value,
-                stock: parseInt(document.getElementById('prod-stock').value||0), desc: document.getElementById('prod-desc').value, featured: document.getElementById('prod-featured').checked
+                stock: parseInt(document.getElementById('prod-stock').value||0), desc: document.getElementById('prod-desc').value, featured: document.getElementById('prod-featured').checked,
+                moq: parseInt(document.getElementById('prod-moq').value||10)
             };
             
             if(id) {
